@@ -177,6 +177,8 @@
   page-home">
     <div class="headband"></div>
 
+    <a href="https://github.com/NI9NE" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
@@ -317,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ni9ne.github.io/2017/09/21/html -01/">
+    <link itemprop="mainEntityOfPage" href="http://ni9ne.github.io/2017/09/27/html -02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="NI9NE">
@@ -337,7 +339,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2017/09/21/html -01/" class="post-title-link" itemprop="url">HTML (基本01)</a>
+                <a href="/2017/09/27/html -02/" class="post-title-link" itemprop="url">HTML (基本02)</a>
               
             
           </h1>
@@ -362,24 +364,10 @@
                 
               
 
-              <time title="创建时间：2017-09-21 17:10:10" itemprop="dateCreated datePublished" datetime="2017-09-21T17:10:10+08:00">2017-09-21</time>
+              <time title="创建时间：2017-09-27 17:10:10" itemprop="dateCreated datePublished" datetime="2017-09-27T17:10:10+08:00">2017-09-27</time>
             </span>
           
 
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-21 17:19:49" itemprop="dateModified" datetime="2019-07-21T17:19:49+08:00">2019-07-21</time>
-              </span>
-            
           
 
           
@@ -433,216 +421,23 @@
       
         
           
-            <h1 id="一-HTML-基本01"><a href="#一-HTML-基本01" class="headerlink" title="一.HTML (基本01)"></a>一.HTML (基本01)</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
-<p>1.常见的几种文件类型：</p>
-<p>*.html    *.css    *.js    *.php    *.sql</p>
-<p>2.wamp存放位置：~/wamp/www/</p>
-<p>3.运行：打开wamp</p>
-<p>​        打开浏览器</p>
-<p>​        地址栏输入localhost</p>
-</blockquote>
-<h3 id="1-HTML简介"><a href="#1-HTML简介" class="headerlink" title="1.HTML简介"></a>1.HTML简介</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;   &lt;!--声明--&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;   &lt;!--语言--&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;!--编码--&gt;</span><br><span class="line">	&lt;title&gt;标题&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	正文内容</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+            <p>
+              二.HTML (基本02)1. 多媒体标签1.图片标签标签名：   img
+属性：    
+src			图片来源地址	width	   	图片宽度调节height	  	图片高度调节title		鼠标悬停显示文本alt			图片加载失败替代文本
 
-<p>​    以上为基本的一段html代码，包含<strong>版本声明</strong>，<strong>编码</strong>，<strong>标题</strong>，其中全局架构标签为<strong>html</strong>，<strong>head</strong>，<strong>body</strong>。<strong>body</strong>标签内部的才是文字，图片，音视频等内容需要占用的位置。</p>
-<blockquote>
-<p>编码：</p>
-<p>计算机早期, 世界只有<strong>ASCII</strong>编码, 只有128个, 不认识汉语, 韩语, 日语<br>新一代的编码 <strong>Unicode</strong>编码, 支持世界上绝大多数的语言, 数字, 字母, 标点, 汉字等都占4个字节<br>升级版 <strong>UTF-8</strong> 编码 (万国码), 数字,字母,标点占1B,  汉字占3B</p>
-</blockquote>
-<h3 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2.基本语法</h3><h4 id="①-全局架构标签"><a href="#①-全局架构标签" class="headerlink" title="①.全局架构标签"></a>①.全局架构标签</h4><ul>
-<li>html</li>
-<li>head</li>
-<li>body</li>
-</ul>
-<h4 id="②-注释"><a href="#②-注释" class="headerlink" title="②.注释"></a>②.注释</h4><p>注释是对代码的描述，不会显示在页面上，但可以增加代码的可读性</p>
-<p>格式：<!--注释内容--></p>
-<p><strong>注意：不能嵌套使用</strong></p>
-<h4 id="③-标签格式"><a href="#③-标签格式" class="headerlink" title="③.标签格式"></a>③.标签格式</h4><p>网页全部是由标签组成的，标签分为两种：</p>
-<ul>
-<li>单标签：&lt;开始标签/&gt;      如:<code>&lt;br/&gt;,&lt;hr/&gt;,&lt;img/&gt;,&lt;meta/&gt;</code></li>
-<li>双标签：&lt;开始标签&gt;正文内容&lt;结束标签/&gt;   如： <code>&lt;p&gt; &lt;/p&gt;</code></li>
-</ul>
-<h4 id="④-标签属性"><a href="#④-标签属性" class="headerlink" title="④.标签属性"></a>④.标签属性</h4><p>格式：<code>&lt;开始标签  属性名=“属性值”  属性名=“属性值”  ...&gt;</code></p>
-<p>标签属性写在标签内部，每对属性之间至少保留一个空格</p>
-<blockquote>
-<p><strong>标签名和属性名不区分大小写</strong></p>
-</blockquote>
-<h3 id="3-浏览器特性"><a href="#3-浏览器特性" class="headerlink" title="3.浏览器特性"></a>3.浏览器特性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;cn&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;浏览器特性&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;浏览器特性&lt;/h1&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    </span><br><span class="line">	亚洲有四大邪术:</span><br><span class="line">		日本的化妆术</span><br><span class="line">		韩国的整容术</span><br><span class="line">		泰国的变性术</span><br><span class="line">		中国的PS术</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>虽然在代码中进行了排版，但实际效果是：</p>
-<p><img src="D:/wamp/www/XIA/0329/%E4%BA%8C%E7%BB%84%E4%BD%9C%E4%B8%9A0329/%E5%BC%A0%E4%BB%A4%E5%B8%9B/md%E6%95%B4%E7%90%86/%E6%97%A0%E6%A0%87%E9%A2%98.jpg" alt="无标题"></p>
-<p><strong><em>注意</em></strong>：浏览器中，任何多的空格和回车，要么<strong>不解析</strong>，要么解析为<strong>一个空格</strong>，利用这个特性，可以在代码中做好排版和注释。</p>
-<blockquote>
-<p><strong>一个职业程序员，应该有良好的注释习惯及排版审美</strong></p>
-</blockquote>
-<h3 id="4-文本格式标签"><a href="#4-文本格式标签" class="headerlink" title="4.文本格式标签"></a>4.文本格式标签</h3><h4 id="①-标题标签"><a href="#①-标题标签" class="headerlink" title="①.标题标签"></a>①.标题标签</h4><p><code>&lt;h1&gt;标题&lt;/h1&gt;</code></p>
-<p>从<code>&lt;h1&gt;</code>到<code>&lt;h6&gt;</code>,标题格式由高层级向低层级转化。一般常用的为h1到h4</p>
-<p>其中h1标签在一个页面中最好只用<strong>一次</strong>，因为h1可以用于<strong>提高搜索排名</strong>，而使用两次及以上，则会被搜索引擎拉入<strong>黑名单</strong>。</p>
-<h3 id="②-段落标签"><a href="#②-段落标签" class="headerlink" title="②.段落标签"></a>②.段落标签</h3><p><code>&lt;p&gt;正文&lt;/p&gt;</code></p>
-<p>在p标签中的文字，为一个段落。不同段间上下行间间距较大，自动换行</p>
-<h4 id="③-样式标签"><a href="#③-样式标签" class="headerlink" title="③.样式标签"></a>③.样式标签</h4><ul>
-<li><code>&lt;b&gt;bold&lt;/b&gt;</code>            <b>加粗</b></li>
-<li><code>&lt;i&gt;italic&lt;/i&gt;</code>                    <i>倾斜</i></li>
-<li><code>&lt;u&gt;underline&lt;/u&gt;</code>              <u>下划线</u></li>
-<li><code>&lt;del&gt;delete&lt;/del&gt;</code>             <del>删除线</del></li>
-</ul>
-<blockquote>
-<p>只负责表面样式，不具备实际意义。</p>
-</blockquote>
-<h4 id="④-语义化标签"><a href="#④-语义化标签" class="headerlink" title="④.语义化标签"></a>④.语义化标签</h4><ul>
-<li><code>&lt;strong&gt; strong&lt;/strong&gt;</code>        <strong>强调</strong></li>
-<li><code>&lt;em&gt;emphasize&lt;/em&gt;</code>                    <em>加强</em></li>
-</ul>
-<blockquote>
-<p>不仅负责表面样式，还具备方便浏览器解析的特性</p>
-</blockquote>
-<h4 id="⑤-上、下标"><a href="#⑤-上、下标" class="headerlink" title="⑤.上、下标"></a>⑤.上、下标</h4><ul>
-<li><code>x&lt;sup&gt;2&lt;/sup&gt;</code>         上标     x<sup>2</sup></li>
-<li><code>CO&lt;sub&gt;2&lt;/sub&gt;</code>        下标    CO<sub>2</sub></li>
-</ul>
-<h4 id="⑥-原样输出"><a href="#⑥-原样输出" class="headerlink" title="⑥.原样输出"></a>⑥.原样输出</h4><ul>
-<li><code>&lt;pre&gt; &lt;/pre&gt;</code>              保持代码样式格式输出</li>
-</ul>
-<h3 id="5-列表标签"><a href="#5-列表标签" class="headerlink" title="5.列表标签"></a>5.列表标签</h3><p><strong>场景</strong>: 一排排 or 一列列长的差不多, 样式相似, 都可以用列表</p>
-<ul>
-<li>有序列表ol（ordered list）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">《回乡偶书》</span><br><span class="line">	&lt;ol&gt;</span><br><span class="line">		&lt;li&gt;瘦小离家老大回&lt;/li&gt;</span><br><span class="line">		&lt;li&gt;乡音未改肉成堆&lt;/li&gt;</span><br><span class="line">		&lt;li&gt;儿童相见不相识&lt;/li&gt;</span><br><span class="line">		&lt;li&gt;请问胖子你是谁&lt;/li&gt;</span><br><span class="line">	&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>无序列表ul（UNordered list）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">《静夜思》</span><br><span class="line">	&lt;ul&gt;</span><br><span class="line">		&lt;li&gt;窗前明月光&lt;/li&gt;</span><br><span class="line">		&lt;li&gt;地上鞋两双&lt;/li&gt;</span><br><span class="line">		&lt;li&gt;一对狗男女&lt;/li&gt;</span><br><span class="line">		&lt;li&gt;其中就有你&lt;/li&gt;</span><br><span class="line">	&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>定义列表dl（defined list）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">		&lt;dt&gt;帮助中心&lt;/dt&gt;</span><br><span class="line">		&lt;dd&gt;账户管理&lt;/dd&gt;</span><br><span class="line">		&lt;dd&gt;购物指南&lt;/dd&gt;</span><br><span class="line">		&lt;dd&gt;订单操作&lt;/dd&gt;</span><br><span class="line">	&lt;/dl&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在实际开发中, ul 使用频率比较 ol 高, 原因是ul解析不用排序，速度比ol快一点 </p>
-</blockquote>
-<h3 id="6-实体符号"><a href="#6-实体符号" class="headerlink" title="6.实体符号"></a>6.实体符号</h3><table>
-<thead>
-<tr>
-<th align="center">基本格式：</th>
-<th align="center">&amp;符号代码；</th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">空格</td>
-<td align="center">&amp;nbsp；</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">小于</td>
-<td align="center">&amp;lt；</td>
-<td align="center">&lt;</td>
-</tr>
-<tr>
-<td align="center">大于</td>
-<td align="center">&amp;gt；</td>
-<td align="center">&gt;</td>
-</tr>
-<tr>
-<td align="center">版权</td>
-<td align="center">&amp;copy；</td>
-<td align="center">©</td>
-</tr>
-<tr>
-<td align="center">人民币</td>
-<td align="center">&amp;yen；</td>
-<td align="center">¥</td>
-</tr>
-</tbody></table>
-<p>其余实体符号具体参考<strong>实体符号速查表</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">符号代码</th>
-<th align="center">释义</th>
-<th align="center">表现</th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>&amp;hearts;</code></td>
-<td align="center">爱心</td>
-<td align="center">&hearts;</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><code>&amp;euro;</code></td>
-<td align="center">欧元</td>
-<td align="center">&euro;</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><code>&amp;frac25;</code></td>
-<td align="center">分数</td>
-<td align="center">&frac25;</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><code>&amp;uarr;</code></td>
-<td align="center">向上箭头</td>
-<td align="center">&uarr;</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><code>&amp;larr;</code></td>
-<td align="center">向左箭头</td>
-<td align="center">&larr;</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="7-超链接"><a href="#7-超链接" class="headerlink" title="7.超链接"></a>7.超链接</h3><ul>
-<li>标签名：a</li>
-<li>属性：<ul>
-<li>href        链接地址</li>
-<li>target     在制定窗口打开链接<ul>
-<li>_self     在本窗口打开链接，默认</li>
-<li>_blank      在新的空白页打开链接</li>
-<li>_top         在顶级窗口打开链接</li>
-<li>自定义name窗口</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>注意点：链接地址为协议+域名，若不写地址，则默认跳转到当前页面</strong></p>
-<ol>
-<li><p>任意一个地址只会对应一个文件</p>
-</li>
-<li><p>在任意目录下，命名为 <strong><em>index.html</em></strong> 或者 <strong><em>index.php</em></strong> 的文件，访问该目录时会自动执行index文件。</p>
-</li>
-<li><p>URL：网址</p>
-<p>在完整地址中，第一个？是文件与参数的分隔符</p>
-</li>
-<li><p>参数</p>
-<p>格式：参数名1=”参数值1”  参数名1=”参数值1”  </p>
-<blockquote>
-<p>多个参数之间有&amp;隔开</p>
-</blockquote>
-</li>
-<li><p>锚点</p>
-<p>格式：  #锚点名</p>
-<blockquote>
-<p>必须在锚点名前加#号</p>
-</blockquote>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;http://www.xxx.com:80/image/av/a.jpg?name=yuhan&amp;age=18#xxoo&quot;&gt; 瞎编的完整地址 &lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="8-锚点"><a href="#8-锚点" class="headerlink" title="8.锚点"></a>8.锚点</h3><p><strong>作用</strong>：跳转至某一页面或者某一节点</p>
-<p><strong>步骤</strong>：</p>
-<p>​    1.确定锚点：HTML4    name=”锚点名”</p>
-<p>​                       HTML5    id=”锚点名”</p>
-<p>​    2.跳转到锚点：</p>
-<p>​        <code>&lt;a href=&quot;url+#锚点名&quot;&gt;点击跳转&lt;/a&gt;</code></p>
-<p><strong>注意点：链接地址为协议+域名，若不写地址，则默认跳转到当前页面</strong></p>
-
+注意：高度属性和宽度属性一般不同时使用，避免影响图片
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/27/html -02/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -699,7 +494,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ni9ne.github.io/2017/09/21/html -02/">
+    <link itemprop="mainEntityOfPage" href="http://ni9ne.github.io/2017/09/21/html -01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="NI9NE">
@@ -719,7 +514,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2017/09/21/html -02/" class="post-title-link" itemprop="url">HTML (基本01)</a>
+                <a href="/2017/09/21/html -01/" class="post-title-link" itemprop="url">HTML (基本01)</a>
               
             
           </h1>
@@ -748,20 +543,6 @@
             </span>
           
 
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-21 17:19:07" itemprop="dateModified" datetime="2019-07-21T17:19:07+08:00">2019-07-21</time>
-              </span>
-            
           
 
           
@@ -815,210 +596,27 @@
       
         
           
-            <h1 id="二-HTML-基本02"><a href="#二-HTML-基本02" class="headerlink" title="二.HTML (基本02)"></a>二.HTML (基本02)</h1><h2 id="1-多媒体标签"><a href="#1-多媒体标签" class="headerlink" title="1. 多媒体标签"></a>1. 多媒体标签</h2><h3 id="1-图片标签"><a href="#1-图片标签" class="headerlink" title="1.图片标签"></a>1.图片标签</h3><p>标签名：   <strong>img</strong></p>
-<p>属性：    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">src			图片来源地址	</span><br><span class="line"></span><br><span class="line">width	   	图片宽度调节</span><br><span class="line"></span><br><span class="line">height	  	图片高度调节</span><br><span class="line"></span><br><span class="line">title		鼠标悬停显示文本</span><br><span class="line"></span><br><span class="line">alt			图片加载失败替代文本</span><br></pre></td></tr></table></figure>
+            <p>
+              一.HTML (基本01)准备工作
+1.常见的几种文件类型：
+*.html    *.css    *.js    *.php    *.sql
+2.wamp存放位置：~/wamp/www/
+3.运行：打开wamp
+​        打开浏览器
+​        地址栏输入localhost
 
-<p><strong>注意：</strong>高度属性和宽度属性一般不同时使用，避免影响图片固有宽高比。</p>
-<blockquote>
-<p>计算机常用长度单位：px （像素）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;图片路径&quot; width=&quot;20px&quot; title=&quot;picture&quot; alt=&quot;~&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-音频标签"><a href="#2-音频标签" class="headerlink" title="2.音频标签"></a>2.音频标签</h3><p>标签名：  <strong>audio</strong></p>
-<p>属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">src			音频来源路径</span><br><span class="line">controls	控制器</span><br><span class="line">loop		循环播放</span><br><span class="line">autoplay	自动播放</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio src=&quot;音频路径&quot; controls loop autoplay&gt;音频播放异常</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
-
-<p>媒介标签——<strong>source</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio controls&gt;</span><br><span class="line">	&lt;source src=&quot;./music.mp3&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;./music.amv&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;./music.fac&quot;&gt;</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>媒介标签提供了一种可能：当所用浏览器不支持某种格式的音频时，有替代格式的同一音频可以正常播放。</p>
-</blockquote>
-<h3 id="3-视频标签"><a href="#3-视频标签" class="headerlink" title="3.视频标签"></a>3.视频标签</h3><p>标签名：  <strong>video</strong></p>
-<p>属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">src 		视频来源地址</span><br><span class="line">controls	控制器</span><br><span class="line">weight		视频宽度</span><br><span class="line">height		视频高度</span><br><span class="line">loop  		循环播放</span><br><span class="line">autoplay	自动播放</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video src=&quot;视频地址&quot; wieght=&quot;200&quot; controls loop autoplay&gt;</span><br></pre></td></tr></table></figure>
-
-<p>媒介标签——<strong>source</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;video controls&gt;</span><br><span class="line">	&lt;source src=&quot;./video.mp4&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;./video.flv&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;./video.avi&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>媒介标签提供了一种可能：当所用浏览器不支持某种格式的音频时，有替代格式的同一音频可以正常播放。</p>
-</blockquote>
-<h3 id="4-地址路径"><a href="#4-地址路径" class="headerlink" title="4.地址路径"></a>4.地址路径</h3><p>计算机文件路径分为 <strong>绝对路径</strong> 和 <strong>相对路径</strong> 。</p>
-<h4 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h4><p>​    .            当前路径，默认</p>
-<p>​    ..               上一级路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;1.jpg&quot;&gt;</span><br><span class="line">&lt;img src=&quot;./1.jpg&quot;&gt;</span><br><span class="line">&lt;!--以上均为在当前目录下寻找1.jpg文件--&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;../1.jpg&quot;&gt;</span><br><span class="line">&lt;img src=&quot;../../1.jpg&quot;&gt;</span><br><span class="line">&lt;!--以上两个分别为在上层目录和上上层目录中寻找1.jpg--&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h4><p>盘符式：    x:/…/…/…</p>
-<p>网址式：    http://…/…/…</p>
-<p>根目录：    /…/…/…</p>
-<blockquote>
-<p>此处的根目录，在wamp中代表www目录</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;D:/wamp/www/3.jpg&quot;&gt;</span><br><span class="line">&lt;img src=&quot;http://localhost/3.jpg&quot; width=&quot;300&quot;&gt;</span><br><span class="line">&lt;img src=&quot;/3.jpg&quot; width=&quot;300&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-表单声明"><a href="#5-表单声明" class="headerlink" title="5.表单声明"></a>5.表单声明</h3><blockquote>
-<p>表单—常用于和用户做交互</p>
-</blockquote>
-<p><strong>标签名</strong>：    <strong>form</strong>（表单声明标签）</p>
-<p><strong>属性</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">action			指定一个地址，将表单内容提交给服务器</span><br><span class="line">				若属性值为空，则默认提交给自己</span><br><span class="line"></span><br><span class="line">method			指定页面内容传输方式；</span><br><span class="line">	get			明文传输，为默认传输方式；</span><br><span class="line">   （查）		  速度快，但安全性较低；</span><br><span class="line">				传输大小在http协议上没有限制，</span><br><span class="line">				实际上受到浏览器限制,</span><br><span class="line">				大多数&lt;2KB = 2048 B；</span><br><span class="line">				</span><br><span class="line">	post		密文传输；</span><br><span class="line">  （增删改）	 	 速度相对get要慢，但安全性高；</span><br><span class="line">				传输大小在http协议上没有限制，</span><br><span class="line">				实际上受到服务器限制；</span><br><span class="line"></span><br><span class="line">enctype	= &quot;multipart/form-date&quot;</span><br><span class="line">				专用于提交文件给服务器</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;http://www.baidu.com/s&quot; method=&quot;post&quot;&gt;</span><br><span class="line">	百度：&lt;input type=&quot;text&quot; name=&quot;word&quot;&gt;&lt;br/&gt;</span><br><span class="line">	密码：&lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt;&lt;br/&gt;</span><br><span class="line">		&lt;input type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-表单标签"><a href="#6-表单标签" class="headerlink" title="6.表单标签"></a>6.表单标签</h3><ul>
-<li>标签名：    <strong>input</strong></li>
-<li>特殊属性：<ul>
-<li><strong>name</strong>    给当前标签命名，只有命名之后，服务器才能知道接收的信息属于谁。一般情况下，所有的表单都需要name。</li>
-<li><strong>value</strong>         给当前标签赋予默认值，其中可手动输入标签，value值可写可不写，不可手动输入标签必须写入value值。</li>
-</ul>
-</li>
-<li>常用属性： <ul>
-<li><strong>type</strong></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">type属性值：</span><br><span class="line">		text		文本域，默认</span><br><span class="line">		password	密码域（输入不可见）</span><br><span class="line">		radio		单选（配合name使用）</span><br><span class="line">		checkbox	多选</span><br><span class="line">		email		邮箱（确保输入&quot;xxx@xxx&quot;格式）</span><br><span class="line">		number		数字（只能输入数字）</span><br><span class="line">		url			地址（确保输入&quot;xxx://xxx&quot;格式）</span><br><span class="line">		date		日期选择</span><br><span class="line">		file		文件提交</span><br><span class="line">		hidden		隐藏域</span><br><span class="line">		search		搜索</span><br><span class="line">		submit		提交</span><br><span class="line">		button 		按钮（必须配合js使用）</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;./demo.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-date&quot;&gt;</span><br><span class="line">默认文本框：&lt;input&gt; &lt;br&gt;</span><br><span class="line">用户名：&lt;input type=&quot;text&quot; name=&quot;userName&quot; value=&quot;id&quot;&gt;&lt;br&gt;</span><br><span class="line">密码：&lt;input type=&quot;password&quot; name=&quot;psd&quot;&gt;&lt;br&gt;</span><br><span class="line">手机号：&lt;input type=&quot;number&quot; name=&quot;tel&quot;&gt;&lt;br&gt;</span><br><span class="line">性别：&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;man&quot;&gt;男</span><br><span class="line">	&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;&gt;女</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">爱好:&lt;input type=&quot;checkbox&quot; name=&quot;hobby[]&quot; value=&quot;book&quot;&gt;book</span><br><span class="line">	&lt;input type=&quot;checkbox&quot; name=&quot;hobby[]&quot; value=&quot;sports&quot;&gt;sports</span><br><span class="line">	&lt;input type=&quot;checkbox&quot; name=&quot;hobby[]&quot; value=&quot;game&quot;&gt;game</span><br><span class="line">	&lt;input type=&quot;checkbox&quot; name=&quot;hobby[]&quot; value=&quot;bike&quot;&gt;bike</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">&lt;!--checkbox要将name值后补上[]，才能形成真正的多选 --&gt;</span><br><span class="line"></span><br><span class="line">邮箱：&lt;input type=&quot;email&quot; name=&quot;email&quot;&gt;&lt;br&gt;</span><br><span class="line">生日:&lt;input type=&quot;date&quot; name=&quot;birthday&quot;&gt;&lt;br&gt;</span><br><span class="line">搜索：&lt;input type=&quot;search&quot; name=&quot;search&quot;&gt;&lt;br&gt;</span><br><span class="line">头像：&lt;input type=&quot;file&quot; name=&quot;icon&quot;&gt;&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--上传文件的3个必要条件--&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">	1.file表单必须要有name属性</span><br><span class="line">	2.form表单的属性method=post</span><br><span class="line">	3.form表单的属性enctype=multipart/form-date</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">隐藏域：&lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;0328&quot;&gt;&lt;br&gt;</span><br><span class="line">URL:&lt;input type=&quot;url&quot; name=&quot;url&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot; value=&quot;&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;!--默认为提交--&gt;</span><br><span class="line">按钮：&lt;input type=&quot;button&quot; value=&quot;insure&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>其中由于默认文本框中标签未添加name属性，提交后无法查看相应内容，更改为<code>&lt;input name=&quot;default&quot;&gt;</code>后提交可正常显示</p>
-</blockquote>
-<h2 id="2-表单"><a href="#2-表单" class="headerlink" title="2. 表单"></a>2. 表单</h2><h3 id="1-下拉框"><a href="#1-下拉框" class="headerlink" title="1.下拉框"></a>1.下拉框</h3><h4 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h4><p><strong>声明标签</strong>：    <em>select</em></p>
-<p>​    属性：    name</p>
-<p><strong>字内容标签</strong>：    <em>option</em></p>
-<p>​    属性：value</p>
-<blockquote>
-<p>option标签若没有value值则会将正文内容提交给服务器</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">户籍：</span><br><span class="line">	&lt;select name=&quot;address&quot;&gt;</span><br><span class="line">		&lt;option&gt;choice&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;1&quot;&gt;shanghai&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;2&quot;&gt;zhejiang&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;3&quot;&gt;jiangsu&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;4&quot;&gt;shadong&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;5&quot;&gt;hunan&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;6&quot;&gt;hubei&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;7&quot;&gt;jiangxi&lt;/option&gt;</span><br><span class="line">	&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="D:/wamp/www/XIA/0329/%E4%BA%8C%E7%BB%84%E4%BD%9C%E4%B8%9A0329/%E5%BC%A0%E4%BB%A4%E5%B8%9B/md%E6%95%B4%E7%90%86/1555.jpg" alt></p>
-<h3 id="2-快捷键"><a href="#2-快捷键" class="headerlink" title="2.快捷键"></a>2.快捷键</h3><p>快捷键：    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">快捷键：	</span><br><span class="line">		ctrl + c   			光标只要在当前行即可</span><br><span class="line">		ctrl + v			马上在上一行进行粘贴</span><br><span class="line"></span><br><span class="line">		ctrl + shift + d	复制当前行到下一行</span><br><span class="line"></span><br><span class="line">		ctrl + x			删除（本质为剪切）</span><br><span class="line"></span><br><span class="line">		ctrl + alt + 方向键		快速选中 同列光标</span><br><span class="line"></span><br><span class="line">		ctrl + /			快速注释</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		emmet插件快速编写类似html标签：</span><br><span class="line"></span><br><span class="line">		$ 		索引， 本质就是数字，默认从1开始</span><br><span class="line">		</span><br><span class="line">		$@num 	索引， 默认从num开始计数</span><br><span class="line"></span><br><span class="line">		*		乘以几次，重复几次，出现几个标签</span><br><span class="line">		</span><br><span class="line">		[]		属性  [属性名=属性值]</span><br><span class="line"></span><br><span class="line">		&#123;&#125; 		正文内容</span><br></pre></td></tr></table></figure>
-
-<p>实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;select name=&quot;test&quot;&gt;	</span><br><span class="line">	&lt;!-- option&#123;$&#125;*5 --&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;1&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;2&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;3&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;4&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;5&lt;/option&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- option[value=$]*5 --&gt;</span><br><span class="line">	&lt;option value=&quot;1&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;2&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;3&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;4&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;5&quot;&gt;&lt;/option&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- option[value=$]&#123;$@1990&#125;*5 --&gt;</span><br><span class="line">	&lt;option value=&quot;1&quot;&gt;1990&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;2&quot;&gt;1991&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;3&quot;&gt;1992&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;4&quot;&gt;1993&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;5&quot;&gt;1994&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-多文本域"><a href="#3-多文本域" class="headerlink" title="3.多文本域"></a>3.多文本域</h3><p><strong>标签名</strong>：    texterea</p>
-<p>​     <strong>属性</strong>:      rows ——  行</p>
-<p>​            cols   ——  列</p>
-<blockquote>
-<p>之前input，select 默认值都是value<br>textarea 的默认值是正文内容，而非value</p>
-</blockquote>
-<p><code>&lt;textarea rows=&quot;5&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;</code></p>
-<h3 id="4-button标签"><a href="#4-button标签" class="headerlink" title="4.button标签"></a>4.button标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;&quot;&gt;</span><br><span class="line">	 	&lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;</span><br><span class="line">	 	&lt;button&gt; button按钮&lt;/button&gt;</span><br><span class="line">	 	&lt;input type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>form表单中的独立button按钮，默认值也是正文内容</p>
-<p>默认效果是将表单内容提交给服务器（同type-submit）</p>
-<p>后期更多是配合js，实现更多的效果。</p>
-<p><strong>注意：不同于input标签下的type属性值</strong></p>
-<p><code>&lt;input type=&quot;button&quot; value=&quot;提交&quot;&gt;</code></p>
-<h3 id="5-表单常用属性"><a href="#5-表单常用属性" class="headerlink" title="5.表单常用属性"></a>5.表单常用属性</h3><p>常见属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">placeholder			背景虚化字</span><br><span class="line">minlength			输入值最小长度</span><br><span class="line">maxlength			输入值最大长度</span><br><span class="line">autofocus			自动获取光标</span><br><span class="line">autocomplete		自动提示历史记录</span><br><span class="line">	——  on		开启，默认</span><br><span class="line">	——  off		关闭</span><br><span class="line">required			输入不能为空</span><br><span class="line">checked				单选/复选默认勾选项</span><br><span class="line">selected			下拉框默认显示项</span><br><span class="line">readonly			只读，只能看不能改，提交给服务器</span><br><span class="line">disabled			禁用，只能看不能改，不能提交给服务器</span><br><span class="line">multiple			开启多选选项</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-头标签设置"><a href="#6-头标签设置" class="headerlink" title="6.头标签设置"></a>6.头标签设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1.设置编码 &lt;meta charset=&quot;UTF-8&quot;&gt; --&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 2.设置标题 &lt;title&gt;&lt;/title&gt; --&gt;</span><br><span class="line">&lt;title&gt;head标签&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 3.搜索引擎关键字 --&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;keyword1,keyword2,...&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 4.设置描述 --&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;描述内容&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 5.网页重定向 --&gt;</span><br><span class="line">&lt;!-- &lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;url=./041.html&quot; --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 6.导入css --&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;./demo.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 7.导入js --&gt;</span><br><span class="line">&lt;script src=&quot;./demo.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 8.导入icon图标 --&gt;</span><br><span class="line">&lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-表格"><a href="#7-表格" class="headerlink" title="7.表格"></a>7.表格</h3><p>表格声明：        table</p>
-<p>表格标题：        caption</p>
-<p>​    表行：        tr        table row</p>
-<p>​    表头：        th        table head</p>
-<p>表格描述：        td        table description</p>
-<blockquote>
-<p>设计：先看行，再看列</p>
-</blockquote>
-<p>属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">border				边框宽度</span><br><span class="line">   cellspacing			外边距（单元格之间的距离）</span><br><span class="line">   cellpadding			内边距（单元格与内容之间的距离）</span><br><span class="line">   width				表格宽度</span><br><span class="line">   height				表格高度</span><br><span class="line">   colspan				列合并</span><br><span class="line">   rowspan				行合并</span><br><span class="line">   align				水平对齐：（left/center/right）</span><br><span class="line">   valign（vertical）   垂直对齐：（top/middle/bottom）</span><br><span class="line">   bgcolor				背景颜色</span><br><span class="line">   background			背景图片</span><br></pre></td></tr></table></figure>
-
-<h3 id="8-下拉框"><a href="#8-下拉框" class="headerlink" title="8.下拉框"></a>8.下拉框</h3><h2 id="表单标签-1"><a href="#表单标签-1" class="headerlink" title="表单标签"></a>表单标签</h2><p><strong>声明标签</strong>：    <em>select</em></p>
-<p>​    属性：    name</p>
-<p><strong>字内容标签</strong>：    <em>option</em></p>
-<p>​    属性：value</p>
-<blockquote>
-<p>option标签若没有value值则会将正文内容提交给服务器</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">户籍：</span><br><span class="line">	&lt;select name=&quot;address&quot;&gt;</span><br><span class="line">		&lt;option&gt;choice&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;1&quot;&gt;shanghai&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;2&quot;&gt;zhejiang&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;3&quot;&gt;jiangsu&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;4&quot;&gt;shadong&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;5&quot;&gt;hunan&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;6&quot;&gt;hubei&lt;/option&gt;</span><br><span class="line">		&lt;option value=&quot;7&quot;&gt;jiangxi&lt;/option&gt;</span><br><span class="line">	&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="D:/wamp/www/XIA/0329/%E4%BA%8C%E7%BB%84%E4%BD%9C%E4%B8%9A0329/%E5%BC%A0%E4%BB%A4%E5%B8%9B/md%E6%95%B4%E7%90%86/1555.jpg" alt></p>
-<h3 id="9-快捷键"><a href="#9-快捷键" class="headerlink" title="9.快捷键"></a>9.快捷键</h3><p>快捷键：    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">快捷键：	</span><br><span class="line">		ctrl + c   			光标只要在当前行即可</span><br><span class="line">		ctrl + v			马上在上一行进行粘贴</span><br><span class="line"></span><br><span class="line">		ctrl + shift + d	复制当前行到下一行</span><br><span class="line"></span><br><span class="line">		ctrl + x			删除（本质为剪切）</span><br><span class="line"></span><br><span class="line">		ctrl + alt + 方向键		快速选中 同列光标</span><br><span class="line"></span><br><span class="line">		ctrl + /			快速注释</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		emmet插件快速编写类似html标签：</span><br><span class="line"></span><br><span class="line">		$ 		索引， 本质就是数字，默认从1开始</span><br><span class="line">		</span><br><span class="line">		$@num 	索引， 默认从num开始计数</span><br><span class="line"></span><br><span class="line">		*		乘以几次，重复几次，出现几个标签</span><br><span class="line">		</span><br><span class="line">		[]		属性  [属性名=属性值]</span><br><span class="line"></span><br><span class="line">		&#123;&#125; 		正文内容</span><br></pre></td></tr></table></figure>
-
-<p>实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;select name=&quot;test&quot;&gt;	</span><br><span class="line">	&lt;!-- option&#123;$&#125;*5 --&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;1&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;2&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;3&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;4&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;&quot;&gt;5&lt;/option&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- option[value=$]*5 --&gt;</span><br><span class="line">	&lt;option value=&quot;1&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;2&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;3&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;4&quot;&gt;&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;5&quot;&gt;&lt;/option&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- option[value=$]&#123;$@1990&#125;*5 --&gt;</span><br><span class="line">	&lt;option value=&quot;1&quot;&gt;1990&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;2&quot;&gt;1991&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;3&quot;&gt;1992&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;4&quot;&gt;1993&lt;/option&gt;</span><br><span class="line">	&lt;option value=&quot;5&quot;&gt;1994&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="10-多文本域"><a href="#10-多文本域" class="headerlink" title="10.多文本域"></a>10.多文本域</h3><p><strong>标签名</strong>：    texterea</p>
-<p>​     <strong>属性</strong>:      rows ——  行</p>
-<p>​            cols   ——  列</p>
-<blockquote>
-<p>之前input，select 默认值都是value<br>textarea 的默认值是正文内容，而非value</p>
-</blockquote>
-<p><code>&lt;textarea rows=&quot;5&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;</code></p>
-<h3 id="11-button标签"><a href="#11-button标签" class="headerlink" title="11.button标签"></a>11.button标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;&quot;&gt;</span><br><span class="line">	 	&lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;</span><br><span class="line">	 	&lt;button&gt; button按钮&lt;/button&gt;</span><br><span class="line">	 	&lt;input type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>form表单中的独立button按钮，默认值也是正文内容</p>
-<p>默认效果是将表单内容提交给服务器（同type-submit）</p>
-<p>后期更多是配合js，实现更多的效果。</p>
-<p><strong>注意：不同于input标签下的type属性值</strong></p>
-<p><code>&lt;input type=&quot;button&quot; value=&quot;提交&quot;&gt;</code></p>
-<h3 id="12-表单常用属性"><a href="#12-表单常用属性" class="headerlink" title="12.表单常用属性"></a>12.表单常用属性</h3><p>常见属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">placeholder			背景虚化字</span><br><span class="line">minlength			输入值最小长度</span><br><span class="line">maxlength			输入值最大长度</span><br><span class="line">autofocus			自动获取光标</span><br><span class="line">autocomplete		自动提示历史记录</span><br><span class="line">	——  on		开启，默认</span><br><span class="line">	——  off		关闭</span><br><span class="line">required			输入不能为空</span><br><span class="line">checked				单选/复选默认勾选项</span><br><span class="line">selected			下拉框默认显示项</span><br><span class="line">readonly			只读，只能看不能改，提交给服务器</span><br><span class="line">disabled			禁用，只能看不能改，不能提交给服务器</span><br><span class="line">multiple			开启多选选项</span><br></pre></td></tr></table></figure>
-
-<h3 id="13-头标签设置"><a href="#13-头标签设置" class="headerlink" title="13.头标签设置"></a>13.头标签设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1.设置编码 &lt;meta charset=&quot;UTF-8&quot;&gt; --&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 2.设置标题 &lt;title&gt;&lt;/title&gt; --&gt;</span><br><span class="line">&lt;title&gt;head标签&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 3.搜索引擎关键字 --&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;keyword1,keyword2,...&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 4.设置描述 --&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;描述内容&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 5.网页重定向 --&gt;</span><br><span class="line">&lt;!-- &lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;url=./041.html&quot; --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 6.导入css --&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;./demo.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 7.导入js --&gt;</span><br><span class="line">&lt;script src=&quot;./demo.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 8.导入icon图标 --&gt;</span><br><span class="line">&lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="14-表格"><a href="#14-表格" class="headerlink" title="14.表格"></a>14.表格</h3><p>表格声明：        table</p>
-<p>表格标题：        caption</p>
-<p>​    表行：        tr        table row</p>
-<p>​    表头：        th        table head</p>
-<p>表格描述：        td        table description</p>
-<blockquote>
-<p>设计：先看行，再看列</p>
-</blockquote>
-<p>属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">border				边框宽度</span><br><span class="line">   cellspacing			外边距（单元格之间的距离）</span><br><span class="line">   cellpadding			内边距（单元格与内容之间的距离）</span><br><span class="line">   width				表格宽度</span><br><span class="line">   height				表格高度</span><br><span class="line">   colspan				列合并</span><br><span class="line">   rowspan				行合并</span><br><span class="line">   align				水平对齐：（left/center/right）</span><br><span class="line">   valign（vertical）   垂直对齐：（top/middle/bottom）</span><br><span class="line">   bgcolor				背景颜色</span><br><span class="line">   background			背景图片</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-布局"><a href="#3-布局" class="headerlink" title="3. 布局"></a>3. 布局</h2><h3 id="1-大分帧"><a href="#1-大分帧" class="headerlink" title="1.大分帧"></a>1.大分帧</h3><blockquote>
-<p>大分帧：<strong>frameset</strong> </p>
-</blockquote>
-<blockquote>
-<p>（在 <strong>html5</strong> 中已经淘汰，但很多较老的网页还在用大分帧布局）</p>
-</blockquote>
-<blockquote>
-<p>（<strong>frameset</strong> 与 <strong>body</strong> 标签不能共存）</p>
-</blockquote>
-<p><strong>标签名</strong>： frameset           设置窗口（分帧）</p>
-<p><strong>格式</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;frameset rows=&quot;x%,x%&quot;&gt;			&lt;frameset col=&quot;x%,x%&quot;&gt;</span><br><span class="line">	&lt;frame&gt;							&lt;frame&gt;</span><br><span class="line">	&lt;frame&gt;							&lt;frame&gt;</span><br><span class="line">&lt;/frameset&gt;						&lt;/frameset&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--可以嵌套使用，嵌套时，将下次要分频的frame标签替换为frameset--&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>属性</strong>：     rows        行分</p>
-<p>​                 cols         列分</p>
-<p>​                *           剩余空间</p>
-<p>​                 noresize     固定分频区域</p>
-<p>​                 frameborder  分频边框关闭(=0)或开启(非0)</p>
-<p><strong>子标签名</strong>： frame        窗口（分帧）</p>
-<p><strong>属性</strong>：    src            窗口内容来源地址</p>
-<p>​               name           给当前窗口命名</p>
-<p>​               scrolling           设置滚动条启用(=yes)或禁用(=no)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 设置上，下（左，右）分频，并自定义内容--&gt;</span><br><span class="line">&lt;frameset rows=&quot;10%,90%&quot; noresize frameborder=&quot;1&quot;&gt;</span><br><span class="line">	&lt;frame src=&quot;./topPage.jpg&quot; name=&quot;top&quot; scrolling=&quot;no&quot;&gt;</span><br><span class="line">	&lt;frameset cols=&quot;20%,*&quot;&gt;</span><br><span class="line">		&lt;frame src=&quot;xxx.html&quot; name=&quot;left&quot; scrolling=&quot;no&quot;&gt;</span><br><span class="line">		&lt;frame src=&quot;xxx.html&quot; name=&quot;right&quot;&gt;</span><br><span class="line">	&lt;/frameset&gt;</span><br><span class="line">&lt;/frameset&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-小分帧"><a href="#2-小分帧" class="headerlink" title="2.小分帧"></a>2.小分帧</h3><p><strong>标签名</strong>： iframe</p>
-<p><strong>属性</strong> ：   scrolling        滚动条（yes/no）</p>
-<p>​        src             引用来源</p>
-<p>​        width            小分帧宽度</p>
-<p>​        height           小分帧高度</p>
-<p>​        frameborder    小分帧边框显示（0/非0）</p>
-<p>​        name             给小分帧命名</p>
-<p><strong>格式</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;广告来源地址&quot; scrolling=&quot;no&quot; width=&quot;500&quot; height=&quot;200&quot; frameborder=&quot;no&quot;&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-
-
+1.
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/21/html -01/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1124,6 +722,10 @@
         
           
         
+          
+        
+          
+        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span>
         </a>
@@ -1140,6 +742,10 @@
           
         
         
+        
+          
+        
+          
         
           
         
