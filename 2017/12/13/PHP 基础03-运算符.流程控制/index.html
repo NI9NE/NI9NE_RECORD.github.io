@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="1. 运算符  OperationPHP中运算符主要有以下七种：  算术运算符 自增/自减运算符 赋值运算符 比较运算符 拼接运算符 逻辑运算符 三元运算符  1.算术运算符：​    加            减    乘    除    取模（取余） ​    +           -             *      /           % ​    取模（%）详解： ​    1">
+<meta name="keywords" content="PHP,后端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 简介03-运算符&#x2F;流程控制">
+<meta property="og:url" content="http://ni9ne.github.io/2017/12/13/PHP 基础03-运算符.流程控制/index.html">
+<meta property="og:site_name" content="NI9NE&#39;s Zone">
+<meta property="og:description" content="1. 运算符  OperationPHP中运算符主要有以下七种：  算术运算符 自增/自减运算符 赋值运算符 比较运算符 拼接运算符 逻辑运算符 三元运算符  1.算术运算符：​    加            减    乘    除    取模（取余） ​    +           -             *      /           % ​    取模（%）详解： ​    1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="d:/wamp/www/XIA/0410/PHP%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
+<meta property="og:updated_time" content="2019-09-04T01:46:14.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 简介03-运算符&#x2F;流程控制">
+<meta name="twitter:description" content="1. 运算符  OperationPHP中运算符主要有以下七种：  算术运算符 自增/自减运算符 赋值运算符 比较运算符 拼接运算符 逻辑运算符 三元运算符  1.算术运算符：​    加            减    乘    除    取模（取余） ​    +           -             *      /           % ​    取模（%）详解： ​    1">
+<meta name="twitter:image" content="d:/wamp/www/XIA/0410/PHP%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://ni9ne.github.io/2017/12/13/PHP 基础03-运算符.流程控制/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>PHP 简介03-运算符/流程控制 | NI9NE's Zone</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/NI9NE" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NI9NE's Zone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ni9ne.github.io/2017/12/13/PHP 基础03-运算符.流程控制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NI9NE">
+      <meta itemprop="description" content="Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn">
+      <meta itemprop="image" content="/images/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NI9NE's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP 简介03-运算符/流程控制
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-13 22:13:27" itemprop="dateCreated datePublished" datetime="2017-12-13T22:13:27+08:00">2017-12-13</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-运算符-Operation"><a href="#1-运算符-Operation" class="headerlink" title="1. 运算符  Operation"></a>1. 运算符  Operation</h1><p>PHP中运算符主要有以下<strong>七种</strong>：</p>
+<ul>
+<li>算术运算符</li>
+<li>自增/自减运算符</li>
+<li>赋值运算符</li>
+<li>比较运算符</li>
+<li>拼接运算符</li>
+<li>逻辑运算符</li>
+<li>三元运算符</li>
+</ul>
+<h3 id="1-算术运算符："><a href="#1-算术运算符：" class="headerlink" title="1.算术运算符："></a>1.<strong>算术运算符</strong>：</h3><p>​    <code>加            减    乘    除    取模（取余）</code></p>
+<p>​    <code>+           -             *      /           %</code></p>
+<p>​    <strong>取模（%）详解</strong>：</p>
+<p>​    1)<strong>普通取模</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var_dump(5%2);		#1</span><br><span class="line">var_dump(1%2);		#1</span><br><span class="line">var_dump(2%2);		#0</span><br></pre></td></tr></table></figure>
+
+<p>​    2)<strong>高阶取模</strong></p>
+<p>​        ①<strong>取模的正负</strong>：取决于被除数的正负</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var_dump(5%2);		#1</span><br><span class="line">var_dump(5%-2);		#1</span><br><span class="line">var_dump(-5%2);		#-1</span><br><span class="line">var_dump(-5%-2);	#-1</span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
+<p>​        ②<strong>取模结果的范围：x~y</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var_dump(0%3);		#0				# %3</span><br><span class="line">var_dump(1%3);		#1</span><br><span class="line">var_dump(2%3);		#2</span><br><span class="line">var_dump(3%3);		#0</span><br><span class="line">var_dump(4%3);		#1</span><br><span class="line">var_dump(5%3);		#2</span><br><span class="line">var_dump(6%3);		#0</span><br><span class="line">var_dump(7%3);		#1				# %3的结果永远在0~2之间，都小于3</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var_dump(0%5);		#0				# %5</span><br><span class="line">var_dump(1%5);		#1</span><br><span class="line">var_dump(2%5);		#2</span><br><span class="line">var_dump(3%5);		#3</span><br><span class="line">var_dump(4%5);		#4</span><br><span class="line">var_dump(5%5);		#0</span><br><span class="line">var_dump(6%5);		#1</span><br><span class="line">var_dump(7%5);		#2				# %x的结果永远在0~x-1之间，都小于x</span><br></pre></td></tr></table></figure>
+
+<p>​            </p>
+<p>​        若需求2~5，如何才能达到需求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	0	~	？		#？=5-2=3	0~3为%4的结果</span><br><span class="line">+	2</span><br><span class="line">-----------------</span><br><span class="line">	2	~	5		#即要达到2~5的结果，需要%4+2</span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
+<p>​        推理到x~y，则有：<code>%(y-x+1)+x</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	0	~	?			# ?=y-x 	为%[(y-x)+1]的结果</span><br><span class="line">+	x</span><br><span class="line">----------------</span><br><span class="line">	x	~	y			# 即要达到x~y的结果，需要%（y-x+1）+x</span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
+<h3 id="2-拼接运算符-string"><a href="#2-拼接运算符-string" class="headerlink" title="2.拼接运算符    string"></a>2.拼接运算符    string</h3><p>1.符号：</p>
+<p>​    <code>.</code>    小数点</p>
+<p>2.作用 ：</p>
+<p>​    拼接变量与字符串    /    拼接变量与变量</p>
+<p>3.实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$a=&apos;winter&apos;;</span><br><span class="line">$b=&apos;fall&apos;;</span><br><span class="line">$c=&apos;winter fall is the home of arya&apos;;	</span><br><span class="line">$c=&apos;$a $b is the home of arya&apos;;			#不识别，显示为$a $b</span><br><span class="line">$c=$a.&apos; &apos;.$b.&apos; is the home of arya&apos;;	#正常显示</span><br><span class="line"></span><br><span class="line">echo $c;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-赋值运算符-equal"><a href="#3-赋值运算符-equal" class="headerlink" title="3.赋值运算符    equal"></a>3.赋值运算符    equal</h3><p>主要有以下几种赋值运算符：</p>
+<p>​    <code>变量=值</code>        赋值（先运算=右边的，再运算=左边的）</p>
+<p>​    <code>变量+=值</code>        变量=变量+值<br>​    <code>变量-=值</code>        变量=变量-值<br>​    <code>变量*=值</code>         变量=变量*值<br>​    <code>变量/=值</code>        变量=变量/值<br>​    <code>变量%=值</code>         变量=变量%值<br>​    <code>变量.=值</code>        变量=变量.值</p>
+<h3 id="4-比较运算符-compare"><a href="#4-比较运算符-compare" class="headerlink" title="4.比较运算符    compare"></a>4.比较运算符    compare</h3><p>​    1.比较的结果都是布尔值（bool）</p>
+<p>​    2.运算符：</p>
+<p>​    <code>&gt;</code>    <code>&gt;=</code>        大于，大于等于</p>
+<p>​    <code>&lt;</code>    <code>&lt;=</code>        小于，小于等于</p>
+<p>​    <code>==</code>                等于    （判断=两端的值是否相等）</p>
+<p>​    <code>===</code>              全等于    （判断两边的值和数据类型是否全部相等）</p>
+<p>​    <code>!=</code>                不等于    （判断两边的值是否不相等）</p>
+<p>​    <code>!==</code>              全不等于    （判断两边的值和数据类型是不是都不相等）</p>
+<h3 id="5-逻辑运算符-logic"><a href="#5-逻辑运算符-logic" class="headerlink" title="5.逻辑运算符    logic"></a>5.逻辑运算符    logic</h3><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">运算符</th>
+<th align="center">运算规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">逻辑与</td>
+<td align="center">&amp;&amp;</td>
+<td align="center">两边全真才是真,一边为假即为假</td>
+</tr>
+<tr>
+<td align="center">逻辑或</td>
+<td align="center">||</td>
+<td align="center">一边为真即是真，两边为假才是假</td>
+</tr>
+<tr>
+<td align="center">逻辑非</td>
+<td align="center">！</td>
+<td align="center">真即是假，假即是真</td>
+</tr>
+</tbody></table>
+<h3 id="6-自增-自减-increment"><a href="#6-自增-自减-increment" class="headerlink" title="6.自增/自减    increment"></a>6.自增/自减    increment</h3><p>​    1.自增运算符：<code>++</code></p>
+<p>​    2.自减运算符：<code>--</code></p>
+<p>​    3.易混乱点：    </p>
+<p>​        a++    先返回a值，再给a+1</p>
+<p>​        ++a    先给a+1，再返回a值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$a=10;</span><br><span class="line">echo $a++;			#输出a	10</span><br><span class="line">echo $a;			#输出a+1	11</span><br><span class="line">echo ++$a;			#输出a+1	12</span><br><span class="line">echo $a;			#输出a	12</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-三元运算符-three"><a href="#7-三元运算符-three" class="headerlink" title="7.三元运算符    three"></a>7.三元运算符    three</h3><p>​    一元运算符：<code>！</code>    <code>a++</code>    <code>a--</code>    </p>
+<p>​    二元运算符：<code>a=b</code>    <code>a%b</code>    <code>a-b</code></p>
+<p>​    三元运算符：<code>?:</code></p>
+<p>1.定义：简化的if-else结构</p>
+<p>2.格式：条件表达式  ?  true环境  :    false环境；</p>
+<p>3.运算规则：</p>
+<p>​    当条件表达式成立时，进入true环境执行；当条件不成立时，进入false环境。</p>
+<p>4.实例</p>
+<p>​    <code>echo 1+1==2?&#39;yes!&#39;:&#39;no&#39;;</code></p>
+<h3 id="补充：运算符优先级"><a href="#补充：运算符优先级" class="headerlink" title="补充：运算符优先级"></a>补充：运算符优先级</h3><p><img src="D:/wamp/www/XIA/0410/PHP%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="PHP运算符优先级"></p>
+<h1 id="2-PHP流程控制"><a href="#2-PHP流程控制" class="headerlink" title="2. PHP流程控制"></a>2. PHP流程控制</h1><p>在PHP中，主要有四种结构：顺序结构，分支结构，循环结构和异常结构，其中异常结构主要适用于面向对象，先不进行介绍。</p>
+<p>1.<strong>顺序结构</strong>：代码从上往下依次执行；（参考HTML中文档流）</p>
+<p>2.<strong>分支结构</strong>：通过 <code>if</code> / <code>switch</code> 来进行分支选择</p>
+<p>3.<strong>循环结构</strong>：通过 <code>for</code> / <code>while</code> 来重复执行某一部分的代码</p>
+<p>以下详细介绍分支结构和循环结构的具体内容</p>
+<h3 id="1-顺序结构（不介绍）"><a href="#1-顺序结构（不介绍）" class="headerlink" title="1.顺序结构（不介绍）"></a>1.顺序结构（不介绍）</h3><h3 id="2-分支结构"><a href="#2-分支结构" class="headerlink" title="2.分支结构"></a>2.分支结构</h3><p>1.单一分支结构：（<code>if</code>）</p>
+<ul>
+<li><p><code>if( 条件表达式 ) 一行代码；</code></p>
+<p>该结构只能影响紧跟在 <code>if</code> 后面的第一行代码，从第二行开始，就不受 <code>if</code> 判断结果的影响</p>
+</li>
+<li><p><code>if( 条件表达式 ){ 一个代码块； }</code> </p>
+<p>该结构后面可以跟一整个代码块，通过复合结构（代码块）， <code>if</code> 可以影响多条语句</p>
+</li>
+</ul>
+<p>2.双向分支结构（<code>else</code>）</p>
+<ul>
+<li><p><code>if( 条件表达式 ){ 代码段;}else{ 代码段；}</code></p>
+<p><code>if</code> 语句的延伸，可以对不满足 <code>if</code> 条件的情况进行阐述</p>
+</li>
+</ul>
+<p>3.多向条件分支结构（<code>elseif</code>）</p>
+<ul>
+<li><p><code>if(条件表达式){代码块}elseif（条件）{ ... }elseif(条件){ ... }...else{...}</code> </p>
+<p>在 <code>elseif</code> 中只有一个被执行，多个条件是逻辑或的关系，只要有一个满足，就可以进入相应的true环境，优先处理包含范围较小的条件</p>
+</li>
+</ul>
+<p>4.巢状条件分支结构（<code>if</code> 嵌套）</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(条件表达式)&#123;</span><br><span class="line">       if(条件表达式)&#123;</span><br><span class="line">           if(条件表达式)&#123;</span><br><span class="line">	...</span><br><span class="line">           &#125;else&#123; ... &#125;</span><br><span class="line">       &#125;else&#123; ... &#125;</span><br><span class="line">   &#125;else&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的多个条件是逻辑与的关系，要同时满足才能进入最深的true环境</p>
+</li>
+</ul>
+<p>5.多向条件分支结构(<code>switch</code>)</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">switch( 表达式 )&#123;</span><br><span class="line">       case 值1: 代码块1；break;</span><br><span class="line">       case 值2： 代码块2;break;</span><br><span class="line">       ...</span><br><span class="line">       case 值n: 代码块n;break;</span><br><span class="line">       default: 代码块n+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>专门用于等值判断， <code>switch</code> 后面的表达式数据类型只能是整型或字符串，不能为<code>bool</code> 值;</p>
+<p>若不加 <code>break</code> ，会在匹配到值后继续向下执行后面的所有标识;</p>
+<p> <code>default</code> 代表不与之前所有值匹配的情况;</p>
+</li>
+</ul>
+<h5 id="6-练习-简易计算器"><a href="#6-练习-简易计算器" class="headerlink" title="6.练习  简易计算器"></a>6.练习  简易计算器</h5><blockquote>
+<p>需求: 由用户输入两组 数值, 并选择运算符, PHP根据运算符结算结果</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//1.接收数据：</span><br><span class="line">	$n1=empty($_GET[&apos;num1&apos;])? null :$_GET[&apos;num1&apos;];	#三元运算符，若设置则赋值，未设置赋值null</span><br><span class="line">//2.根据运算符选择计算方式</span><br><span class="line">	$result = null;</span><br><span class="line">		switch ($ope) &#123;</span><br><span class="line">			case &apos;+&apos;: $result = $n1 + $n2; break;	</span><br><span class="line">			case &apos;-&apos;: $result = $n1 - $n2; break;</span><br><span class="line">			case &apos;*&apos;: $result = $n1 * $n2; break;</span><br><span class="line">			case &apos;/&apos;: $result = $n1 / $n2; break;</span><br><span class="line">		&#125;</span><br><span class="line">//3.HTML表单提交</span><br><span class="line">		&lt;input type=&quot;text&quot; name=&quot;num1&quot; value=&quot;&lt;?= $n1 ?&gt;&quot;&gt; </span><br><span class="line"></span><br><span class="line">		&lt;select name=&quot;ope&quot;&gt;</span><br><span class="line">			&lt;option value=&quot;+&quot; &lt;?=  $ope == &apos;+&apos;?&apos;selected&apos;:null   ?&gt;  &gt;+&lt;/option&gt;</span><br><span class="line">			&lt;option value=&quot;-&quot; &lt;?=  $ope == &apos;-&apos;?&apos;selected&apos;:null   ?&gt;  &gt;-&lt;/option&gt;</span><br><span class="line">			&lt;option value=&quot;*&quot; &lt;?=  $ope == &apos;*&apos;?&apos;selected&apos;:null   ?&gt;  &gt;&amp;times;&lt;/option&gt;</span><br><span class="line">			&lt;option value=&quot;/&quot; &lt;?=  $ope == &apos;/&apos;?&apos;selected&apos;:null   ?&gt;  &gt;&amp;divide;&lt;/option&gt;</span><br><span class="line">		&lt;/select&gt;	#三元运算符，若选中默认显示，未选中为空</span><br><span class="line"></span><br><span class="line">		&lt;input type=&quot;text&quot; name=&quot;num2&quot; value=&quot;&lt;?= $n2 ?&gt;&quot;&gt; 	#value输入提交时默认显示</span><br><span class="line">		</span><br><span class="line">//4.HTML中输出结果</span><br><span class="line">	&lt;span&gt; &lt;?= $result ?&gt; &lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-循环结构"><a href="#3-循环结构" class="headerlink" title="3.循环结构"></a>3.循环结构</h3><h4 id="1-while循环（当）"><a href="#1-while循环（当）" class="headerlink" title="1.while循环（当）"></a>1.while循环（当）</h4><ul>
+<li>格式：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$sum=1;									初始化;</span><br><span class="line">while($num&lt;=100)&#123;        				while(条件)&#123;</span><br><span class="line">       echo $num;								代码块；</span><br><span class="line">       $num++;								&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>循环规则：</p>
+<p>​    初始化 –&gt; 条件  成立–&gt; 代码块 –&gt;条件（循环）</p>
+<p>​                不成立 –&gt; 跳出循环</p>
+</li>
+</ul>
+<p>注意： <code>while</code> 循环常用来控制循环次数未知的循环结构，条件表达式的结果必须为 <code>bool</code> 值</p>
+<h4 id="2-do…while循环（直到）"><a href="#2-do…while循环（直到）" class="headerlink" title="2.do…while循环（直到）"></a>2.do…while循环（直到）</h4><ul>
+<li>格式：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$num=1;								初始化;</span><br><span class="line">do&#123;									do&#123;</span><br><span class="line">       echo $num;							代码块；</span><br><span class="line">       $num++;							&#125;while（条件）；</span><br><span class="line">&#125;while($num&lt;0);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>循环规则：</p>
+<p>​    初始化 –&gt; 代码块 –&gt; 条件 成立 –&gt; 代码块（循环）</p>
+<p>​                         不成立 –&gt; 跳出循环</p>
+</li>
+</ul>
+<p>注意： <code>do...while</code> 是先执行一次代码块，然后判断是否符合条件，来决定是否继续循环；</p>
+<p>​        <code>while(条件)</code> 后面要加上分号 <code>；</code> </p>
+<p>​        适合执行至少必须循环一次的情况。</p>
+<h4 id="3-for循环"><a href="#3-for循环" class="headerlink" title="3.for循环"></a>3.for循环</h4><ul>
+<li><p>格式： <code>for( 初始化 ; 条件表达式 ; 增量 ){ 代码块; }</code> </p>
+</li>
+<li><p>循环规则：</p>
+<p>初始化 –&gt; 条件表达式  成立–&gt; 代码块 –&gt; 增量 –&gt; 条件 –&gt; 代码块（循环） </p>
+<p>​                    不成立–&gt; 跳出循环</p>
+</li>
+<li><p>注意点：</p>
+<ul>
+<li><p>for语句中的三部分可以部分或全部为空，如把第一部分初始化语句提到for语句之前，第二部分和第三部分提到for语句之内；（for的退化形式）</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//把初始化提到for之前</span><br><span class="line">	$num=1;</span><br><span class="line">	for(;$num&lt;10;$num++)&#123;echo $num;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//把第三部分增量提到for之内</span><br><span class="line">	$num=1;</span><br><span class="line">	for(;$num&lt;10;)&#123;</span><br><span class="line">        echo $num;</span><br><span class="line">        $num++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//把第二部分条件表达式提到for之内</span><br><span class="line">	$num=1;</span><br><span class="line">	for(;;)&#123;</span><br><span class="line">        if($num&lt;10)break;</span><br><span class="line">        echo $num;</span><br><span class="line">        $num++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>for语句中的每个部分都可以写多个表达式，之间用 <code>,</code> 逗号隔开；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-循环语句之间的区别"><a href="#4-循环语句之间的区别" class="headerlink" title="4.循环语句之间的区别"></a>4.循环语句之间的区别</h4><ul>
+<li>while语句先判断再执行，do…while语句先执行一次，再判断是否继续循环。</li>
+<li>while语句计算机执行速度较快，for语句代码书写方便，排版整洁，使用程度较高。</li>
+</ul>
+<h4 id="5-for循环使用技巧"><a href="#5-for循环使用技巧" class="headerlink" title="5.for循环使用技巧"></a>5.for循环使用技巧</h4><ul>
+<li><p>当条件表达式为空或非false值时，程序条件永远满足，产生死循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$x=0;</span><br><span class="line">for(;;)&#123;</span><br><span class="line">	echo $x.&apos; &apos;;</span><br><span class="line">	$x++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当条件表达式为与false等价（0 , 0.0，‘ ‘，…）时，程序认为条件不满足，不会执行;</p>
+</li>
+<li><p>当初始化表达式为空时，false=0，初始值为0；</p>
+</li>
+<li><p>当增量为空时，若条件成立则一直循环输出初始值；z</p>
+</li>
+</ul>
+<h3 id="4-特殊流程控制符"><a href="#4-特殊流程控制符" class="headerlink" title="4.特殊流程控制符"></a>4.特殊流程控制符</h3><h4 id="1-continue"><a href="#1-continue" class="headerlink" title="1.continue"></a>1.continue</h4><p>当执行到continue时，会准备进入下一轮循环</p>
+<h4 id="2-break"><a href="#2-break" class="headerlink" title="2.break"></a>2.break</h4><p>当执行到break时，会马上结束当前循环或者分支结构</p>
+<h4 id="3-die"><a href="#3-die" class="headerlink" title="3.die"></a>3.die</h4><p>当执行到die时，整个程序结束（后面全部不会执行）（？断点调试？）</p>
+<h3 id="5-扩展使用"><a href="#5-扩展使用" class="headerlink" title="5.扩展使用"></a>5.扩展使用</h3><p>​    <strong>需求：输出0~9，如果碰到4，跳过</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for($i=0;$i&lt;10;$i++)&#123;</span><br><span class="line">	if($i!==4)&#123;</span><br><span class="line">           echo $i.&apos; &apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for($i=0;$i&lt;10;$i++)&#123;</span><br><span class="line">       if($i==4)&#123;</span><br><span class="line">           continue;</span><br><span class="line">       &#125;echo $i.&apos; &apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    <strong>需求：输出0~9，如果碰到4，就结束循环</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for($i=0;$i&lt;10;$i++)&#123;</span><br><span class="line">       if($i==4)&#123;</span><br><span class="line">           break;</span><br><span class="line">       &#125;echo $i.&apos; &apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    <strong>需求：输出0~9，如果碰到4，就结束程序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for($i=0;$i&lt;10;$i++)&#123;</span><br><span class="line">          if($i==4)&#123;</span><br><span class="line">              die(&apos;111&apos;);</span><br><span class="line">          &#125;echo $i.&apos; &apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    结论：</p>
+<ul>
+<li><code>continue</code> 只是跳过此次循环，继续下次循环；</li>
+<li><code>break</code> 是结束本循环结构，继续后面的程序执行；</li>
+<li><code>die</code> 是结束整个程序，后面的程序直接无效；（<code>exit</code> 同样）</li>
+</ul>
+<h2 id="5-HTML与PHP结合写法"><a href="#5-HTML与PHP结合写法" class="headerlink" title="5.HTML与PHP结合写法"></a>5.HTML与PHP结合写法</h2><ol>
+<li><p><code>for</code>  和 HTML 混合写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  for()  ?&gt;</span><br><span class="line">	HTML代码块</span><br><span class="line">&lt;?php  endfor  ?&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p><code>if</code> 和 HTML 混合写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">     &lt;?php  if()  ?&gt;</span><br><span class="line">         HTML代码块</span><br><span class="line">     &lt;?php  endif  ?&gt;</span><br><span class="line">   </span><br><span class="line">         &lt;?php  if()  ?&gt;</span><br><span class="line">             HTML代码块(true环境)</span><br><span class="line">         &lt;?php  else:  ?&gt;</span><br><span class="line">             HTML代码块(false环境)</span><br><span class="line">         &lt;?php  endif  ?&gt;</span><br><span class="line">         </span><br><span class="line">        &lt;?php  if():  ?&gt;</span><br><span class="line">	html代码块 (true环境)</span><br><span class="line">&lt;?php elseif(): ?&gt;</span><br><span class="line">	html代码块 (true环境)</span><br><span class="line">&lt;?php elseif(): ?&gt;</span><br><span class="line">	html代码块 (true环境)</span><br><span class="line">&lt;?php elseif(): ?&gt;</span><br><span class="line">	html代码块 (true环境)</span><br><span class="line">&lt;?php else(): ?&gt;</span><br><span class="line">	html代码块 (false环境)</span><br><span class="line">&lt;?php  endif ?&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="NI9NE wechat" style="width: 200px; max-width: 100%;">
+  <div>关注我的测试接口</div>
+</div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="NI9NE 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-quora"></i> PHP</a>
+          
+            <a href="/tags/后端/" rel="tag"><i class="fa fa-quora"></i> 后端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/04/PHP 基础02-数据类型转化/" rel="next" title="PHP 简介02-数据类型转化">
+                <i class="fa fa-chevron-left"></i> PHP 简介02-数据类型转化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/27/PHP 基础04-函数/" rel="prev" title="PHP 简介04-函数">
+                PHP 简介04-函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTQ3NS8yMTk4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/favicon.png" alt="NI9NE">
+  
+  <p class="site-author-name" itemprop="name">NI9NE</p>
+  <div class="site-description motion-element" itemprop="description">Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/NI9NE" title="GitHub &rarr; https://github.com/NI9NE" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://nodejs.cn/" title="http://nodejs.cn/" rel="noopener" target="_blank">Node.js</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bootcss.com/" title="https://www.bootcss.com/" rel="noopener" target="_blank">Bootstrap</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.expressjs.com.cn/" title="http://www.expressjs.com.cn/" rel="noopener" target="_blank">Express</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ejs.co/" title="https://ejs.co/" rel="noopener" target="_blank">Ejs</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-运算符-Operation"><span class="nav-number">1.</span> <span class="nav-text">1. 运算符  Operation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-算术运算符："><span class="nav-number">1.0.1.</span> <span class="nav-text">1.算术运算符：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-拼接运算符-string"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.拼接运算符    string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-赋值运算符-equal"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.赋值运算符    equal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-比较运算符-compare"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.比较运算符    compare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-逻辑运算符-logic"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.逻辑运算符    logic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-自增-自减-increment"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.自增/自减    increment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-三元运算符-three"><span class="nav-number">1.0.7.</span> <span class="nav-text">7.三元运算符    three</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充：运算符优先级"><span class="nav-number">1.0.8.</span> <span class="nav-text">补充：运算符优先级</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2-PHP流程控制"><span class="nav-number">2.</span> <span class="nav-text">2. PHP流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-顺序结构（不介绍）"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.顺序结构（不介绍）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-分支结构"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.分支结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6-练习-简易计算器"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">6.练习  简易计算器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-循环结构"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-while循环（当）"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">1.while循环（当）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-do…while循环（直到）"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">2.do…while循环（直到）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-for循环"><span class="nav-number">2.0.3.3.</span> <span class="nav-text">3.for循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-循环语句之间的区别"><span class="nav-number">2.0.3.4.</span> <span class="nav-text">4.循环语句之间的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-for循环使用技巧"><span class="nav-number">2.0.3.5.</span> <span class="nav-text">5.for循环使用技巧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-特殊流程控制符"><span class="nav-number">2.0.4.</span> <span class="nav-text">4.特殊流程控制符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-continue"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">1.continue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-break"><span class="nav-number">2.0.4.2.</span> <span class="nav-text">2.break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-die"><span class="nav-number">2.0.4.3.</span> <span class="nav-text">3.die</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-扩展使用"><span class="nav-number">2.0.5.</span> <span class="nav-text">5.扩展使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-HTML与PHP结合写法"><span class="nav-number">2.1.</span> <span class="nav-text">5.HTML与PHP结合写法</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-chrome"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NI9NE</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+
+<script>
+  window.livereOptions = {
+    refer: '2017/12/13/PHP 基础03-运算符.流程控制/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
