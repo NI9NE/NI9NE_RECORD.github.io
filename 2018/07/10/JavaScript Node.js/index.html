@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="Node.js1.关于 Node.jsNode.js是一个让 JavaScript 运行在服务器端的开发平台. 1.1. 介绍1). Node.js 不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的”既是语言，也是平台”不同，Node.js的使用JavaScript进行编程，运行在JavaScript引擎上（V8）。 2). 与PHP、JSP等相比，Node.js跳过了Ap">
+<meta name="keywords" content="JavaScript,Node.js,express,npm,ejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-Node.js">
+<meta property="og:url" content="http://ni9ne.github.io/2018/07/10/JavaScript Node.js/index.html">
+<meta property="og:site_name" content="NI9NE&#39;s Zone">
+<meta property="og:description" content="Node.js1.关于 Node.jsNode.js是一个让 JavaScript 运行在服务器端的开发平台. 1.1. 介绍1). Node.js 不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的”既是语言，也是平台”不同，Node.js的使用JavaScript进行编程，运行在JavaScript引擎上（V8）。 2). 与PHP、JSP等相比，Node.js跳过了Ap">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-04T06:46:10.711Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-Node.js">
+<meta name="twitter:description" content="Node.js1.关于 Node.jsNode.js是一个让 JavaScript 运行在服务器端的开发平台. 1.1. 介绍1). Node.js 不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的”既是语言，也是平台”不同，Node.js的使用JavaScript进行编程，运行在JavaScript引擎上（V8）。 2). 与PHP、JSP等相比，Node.js跳过了Ap">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://ni9ne.github.io/2018/07/10/JavaScript Node.js/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>JavaScript-Node.js | NI9NE's Zone</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/NI9NE" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NI9NE's Zone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ni9ne.github.io/2018/07/10/JavaScript Node.js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NI9NE">
+      <meta itemprop="description" content="Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn">
+      <meta itemprop="image" content="/images/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NI9NE's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript-Node.js
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-10 20:15:03" itemprop="dateCreated datePublished" datetime="2018-07-10T20:15:03+08:00">2018-07-10</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><h2 id="1-关于-Node-js"><a href="#1-关于-Node-js" class="headerlink" title="1.关于 Node.js"></a>1.关于 Node.js</h2><p>Node.js是一个让 JavaScript 运行在服务器端的开发平台.</p>
+<h3 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1. 介绍"></a>1.1. 介绍</h3><p>1). Node.js 不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的”既是语言，也是平台”不同，Node.js的使用JavaScript进行编程，运行在JavaScript引擎上（V8）。</p>
+<p>2). 与PHP、JSP等相比，Node.js跳过了Apache、Naginx、IIS等HTTP服务器，它自己不用建设在任何服务器软件之上。Node.js的许多设计理念与经典架构（LAMP）有着很大的不同，可以提供强大的伸缩能力。</p>
+<p>官网: <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>中文网: <a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a></p>
+<h3 id="1-2-特点"><a href="#1-2-特点" class="headerlink" title="1.2. 特点"></a>1.2. 特点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">单线程 | 非阻塞I/O | 事件驱动</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-单线程"><a href="#1-单线程" class="headerlink" title="1). 单线程"></a>1). 单线程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">所有客户端请求的连接 都使用一个线程来处理.</span><br><span class="line"></span><br><span class="line">Node.js 不是给每个连接去创建新的 线程,而是仅仅使用一个线程来处理.</span><br><span class="line">单线程带来的好处,减少内存的损耗,提高并发量. 操作系统完全不再有线程创建和销毁的开销.</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-非阻塞I-O"><a href="#2-非阻塞I-O" class="headerlink" title="2). 非阻塞I/O"></a>2). 非阻塞I/O</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I/O操作不会阻塞程序的运行</span><br><span class="line">I: Input  输入</span><br><span class="line">O: Output 输出</span><br><span class="line"></span><br><span class="line">在阻塞模式下,一个线程只能处理一项任务,想要提高吞吐率,必须通过多线程</span><br><span class="line">而非阻塞模式下,一个线程 永远在执行某种运算操作.这个线程的CPU 核心利用率永远是满载的</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-事件驱动"><a href="#3-事件驱动" class="headerlink" title="3). 事件驱动"></a>3). 事件驱动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">客户端 请求建立连接，提交数据等行为，就会触发 相应的事件.</span><br><span class="line">在Node中，在一个时刻，只能执行 一个事件回调函数，但是在执行 一个事件回调函数的中途，（比如，又有新用户连接了）可以转而处理其他事件，然后返回继续执行原事件的回调函数，这种处理机制，称为“事件环”机制.</span><br></pre></td></tr></table></figure>
+
+<p>Node.js底层是C++(V8引擎也是C++写的).底层代码中，近半数都用于事件队列、回调函数队列的构建.用事件驱动 来完成服务器的 任务调度,是Node.js中 真正底层核心逻辑.</p>
+<h4 id="4-三特点说明"><a href="#4-三特点说明" class="headerlink" title="4). 三特点说明"></a>4). 三特点说明</h4><p>单线程<br>    是为了减少内存的开销,操作系统的内存换页(创建/销毁)<br>    但是,如果某一个请求 有I/O操作,单线程就会被阻塞了!<br>非阻塞I/O<br>    程序不会傻等I/O语句的执行结束,才继续后续代码的运行,而会直接运行后续代码.<br>    但是,非阻塞就能完美的解决问题吗, 比如 小A的业务执行I/O过程中,有小C要新的请求,此时则么办?<br>事件驱动(事件环)<br>    不管是新用户的请求,还是老用户的I/O操作,都将以事件的方式加入到事件环之中,等待调度.</p>
+<p>Node.js 中所有的I/O都是异步的.回调函数 套 回调函数<br>泡茶 : 洗茶壶 4 / 洗茶杯 3 / 用茶壶烧开水 8 / 准备茶叶 2 / 泡茶水 5 / 倒茶水 1<br>4 + 8 + 5 + 1 = 18<br> 3 + 2 </p>
+<h3 id="1-3-Node-js-的优缺点-适合开发什么"><a href="#1-3-Node-js-的优缺点-适合开发什么" class="headerlink" title="1.3 Node.js 的优缺点,适合开发什么?"></a>1.3 Node.js 的优缺点,适合开发什么?</h3><h4 id="1-优点"><a href="#1-优点" class="headerlink" title="1). 优点"></a>1). 优点</h4><p>​    善于I/O,不善于 大量计算<br>​    处理高并发<br>​    服务器推送</p>
+<h4 id="2-缺点"><a href="#2-缺点" class="headerlink" title="2). 缺点"></a>2). 缺点</h4><p>​    单线程的缺点: 单一线程 一旦奔溃则整个服务全奔溃<br>​    服务不是绝对可靠的.</p>
+<h4 id="3-适用场景"><a href="#3-适用场景" class="headerlink" title="3). 适用场景"></a>3). 适用场景</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">不能完全替代 传统的后端语言,但在某些方面优于传统.</span><br><span class="line">当应用程序需要处理大量并发的I/O操作，而在发出响应之前，应用程序内部 并不需要进行非常复杂的计算处理的时候，Node.js非常适合。</span><br><span class="line">Node.js也非常适合与web socket配合，开发长连接的实时交互应用程序。</span><br><span class="line"></span><br><span class="line">- 聊天室</span><br><span class="line">- 图文直播</span><br><span class="line">- 考试系统</span><br><span class="line">- 收集用户数据的表单</span><br><span class="line">- 提供JSON的API</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装使用node"><a href="#2-安装使用node" class="headerlink" title="2.安装使用node"></a>2.安装使用node</h2><h3 id="2-1-windows环境安装"><a href="#2-1-windows环境安装" class="headerlink" title="2.1 windows环境安装"></a>2.1 windows环境安装</h3><p><code>node -v</code>查看版本</p>
+<p><code>node 文件名</code>  运行文件</p>
+<h3 id="2-2-搭建Node-js服务器"><a href="#2-2-搭建Node-js服务器" class="headerlink" title="2.2 搭建Node.js服务器"></a>2.2 搭建Node.js服务器</h3><p>​    – 首个nodejs页面页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 搭建nodejs WEB服务器</span><br><span class="line"></span><br><span class="line">// 引入HTTP模版</span><br><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line"></span><br><span class="line">var hostname = &apos;127.0.0.1&apos;;</span><br><span class="line">var port = 3000;</span><br><span class="line"></span><br><span class="line">// 创建服务器</span><br><span class="line">// req 表示请求(request) / res 表示响应(response)</span><br><span class="line">var server = http.createServer(function(req, res)&#123;</span><br><span class="line">    // 设置HTTP头信息. 状态码 200; 文件类型是html; 字符集 utf-8</span><br><span class="line">    res.writeHead(200, &#123;&apos;Content-type&apos;:&apos;text/html;charset=UTF-8&apos;&#125;);</span><br><span class="line">    // 服务器响应输出完成</span><br><span class="line">    res.end(&apos;Hi~ o(*￣▽￣*)ブ, 首个nodejs页面,您的积分为: &apos; + (50 + 10) + &apos;分&apos;); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 运行服务器</span><br><span class="line">server.listen(port, hostname, function()&#123;</span><br><span class="line">    console.log(`请访问: http://$&#123;hostname&#125;:$&#123;port&#125;`);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果修改了程序代码,必须中断当前的node服务,重新在node一次</p>
+<p>node.js是服务器的程序,写好的JS代码,都将运行在服务器上.返回给客户端的, 都是已经处理好的结果</p>
+<p>node就是一个JS的运行环境</p>
+<p>js文件是不能直接拖入浏览器取运行的,必须靠node去执行</p>
+<h3 id="2-3-根目录-与-web容器"><a href="#2-3-根目录-与-web容器" class="headerlink" title="2.3 根目录 与 web容器"></a>2.3 根目录 与 web容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1). Node.js没有根目录的概念，因为它根本没有任何的web容器！</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2). 静态页面的呈现</span><br><span class="line"></span><br><span class="line">URL和真实的物理文件之间 是没有关系的。</span><br><span class="line">URL是通过 Node 的路由设计之后，才呈现出 某一个静态文件的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3). HTTP运行原理</span><br></pre></td></tr></table></figure>
+
+<p>由此,我们可以看出,要是使用nodejs 搭建服务器,<br>是需要写 各种回调函数,定义 各种路由规则,来实现 页面的显示.<br>nodejs中就是 回调函数 套回调函数,每个回调函数 都是一个事件</p>
+<p>由此就用到了 nodejs的三个特性:<br>    单线程 | 非阻塞I/O | 事件驱动(事件环)<br>    URL路由规则,与实际的物理文件,不一定有直接的联系. </p>
+<h2 id="3-HTTP模块"><a href="#3-HTTP模块" class="headerlink" title="3.HTTP模块"></a>3.HTTP模块</h2><p>   Node.js将各种功能，都划分为了一个个mudule(模块)<br>   需要用什么模块,就可以使用require(‘’)来引入使用</p>
+<h2 id="4-URL模块"><a href="#4-URL模块" class="headerlink" title="4.URL模块"></a>4.URL模块</h2><p>​    解析URL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// GET 参数的处理</span><br><span class="line"> var getParams = url.parse(req.url, true).query;</span><br><span class="line"> var name = getParams.name;</span><br><span class="line"> var age = getParams.age;</span><br><span class="line"> var sex = getParams.sex;</span><br><span class="line"> res.end(&apos;服务器接收到了以下信息: &apos;+ name + &apos; | &apos; + age + &apos; | &apos; + sex);</span><br></pre></td></tr></table></figure>
+
+<p>​    路由设计</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var url = require(&apos;url&apos;);</span><br><span class="line"></span><br><span class="line">var hostname = &apos;127.0.0.1&apos;;</span><br><span class="line">var port = 3000;</span><br><span class="line"></span><br><span class="line">// 创建服务器</span><br><span class="line">var server = http.createServer(function(req, res)&#123;</span><br><span class="line">    // 跳过了 chrome 的收藏夹图标的请求</span><br><span class="line">    if (req.url == &apos;/favicon.ico&apos;) return;</span><br><span class="line">    res.writeHead(200, &#123;&apos;content-type&apos;: &apos;text/html;charset=utf-8&apos;&#125;);</span><br><span class="line"></span><br><span class="line">    // /stu/20190212007  查询学员</span><br><span class="line">    // /tch/00128        查询老师</span><br><span class="line">    </span><br><span class="line">    //  获取URL中的path部分</span><br><span class="line">    var user = url.parse(req.url).pathname;</span><br><span class="line"></span><br><span class="line">    // substr</span><br><span class="line">    if (user.substr(0, 5) == &apos;/stu/&apos;) &#123;</span><br><span class="line">        var stuid = user.substr(5);</span><br><span class="line">        // console.log(stuid);</span><br><span class="line">        if (/^\d&#123;11&#125;$/.test(stuid)) &#123;</span><br><span class="line">            res.end(&apos;查询到的学号是: &apos; + stuid);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            res.end(&apos;学员的学号有误!!!&apos;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else if (user.substr(0, 5) == &apos;/tch/&apos;) &#123;</span><br><span class="line">        var tchid = user.substr(5);</span><br><span class="line">        // console.log(tchid);</span><br><span class="line">        if (/^\d&#123;5&#125;$/.test(tchid)) &#123;</span><br><span class="line">            res.end(&apos;查询到的工号是: &apos; + tchid);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            res.end(&apos;工号有误!!!&apos;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        res.end(&apos;URL有误,请检查重试!!!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 运行服务器</span><br><span class="line">server.listen(port, hostname);</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-文件系统"><a href="#5-文件系统" class="headerlink" title="5.文件系统"></a>5.文件系统</h2><p>​    5.1. 新建文件夹 / 删除文件夹 / 文件状态信息 / 读取文件夹</p>
+<p>​    5.2. 读取出 文件夹/文件</p>
+<h2 id="6-静态目录-文件加载-web容器"><a href="#6-静态目录-文件加载-web容器" class="headerlink" title="6.静态目录 文件加载 (web容器)"></a>6.静态目录 文件加载 (web容器)</h2><h2 id="7-模块的概念"><a href="#7-模块的概念" class="headerlink" title="7.模块的概念"></a>7.模块的概念</h2><p>   在Node.js中,不可能用一个js文件去写全部的业务,肯定要有MVC.<br>   它以模块为单位 划分所有功能,并且提供了一个 完整的模块加载机制,我们可以将应用程序 划分为各个不同的部分.</p>
+<p>   每一个JavaScript文件都是一个模块；<br>   而多个JavaScript文件可以使用require引入,使他们共同实现了一个功能模块.</p>
+<h3 id="7-1-输出变量-函数"><a href="#7-1-输出变量-函数" class="headerlink" title="7.1 输出变量/函数"></a>7.1 输出变量/函数</h3><p>​    Node.js中,JS文件中定义的变量、函数,都只在这个文件内部有效.<br>​    其他文件中需要引用变量、函数时,必须使用<code>exports对象</code>进行暴露(输出).<br>​    使用者要用<code>require()</code>命令,引用执行这个JS文件.</p>
+<h3 id="7-2-输出一个类-构造函数"><a href="#7-2-输出一个类-构造函数" class="headerlink" title="7.2 输出一个类(构造函数)"></a>7.2 输出一个类(构造函数)</h3><p>​    可以用<code>module.exports = 构造函数名;</code>的方式 向外输出一个类</p>
+<h3 id="7-3-模块关联关系"><a href="#7-3-模块关联关系" class="headerlink" title="7.3 模块关联关系"></a>7.3 模块关联关系</h3><ul>
+<li>某一个js文件中,有函数或变量: exports.变量 = 变量;</li>
+<li>某一个js文件中,有一个类: module.exports = 构造函数名;</li>
+</ul>
+<h3 id="7-4-模块封装"><a href="#7-4-模块封装" class="headerlink" title="7.4 模块封装"></a>7.4 模块封装</h3><h2 id="8-npm"><a href="#8-npm" class="headerlink" title="8.npm"></a>8.npm</h2><p> (node package management)</p>
+<p>   这是一个工具名字.npm的主要职责是 安装开发包和管理依赖项.<br>   安装开发包:安装 <code>npm install</code>命令；更新 <code>npm update</code>命令.<br>   管理依赖项:借助 package.json 文件;最简单生成 package.json 的方法就是 <code>npm init</code></p>
+<p>   npm不需要单独安装,只要安装了 Node.js 环境,npm 就已经包含在里面了. 查看 npm 版本: <code>npm -v</code></p>
+<p>   <strong>为什么要使用npm?</strong><br>   开发时,会使用到各种功能的组件,所有组件都由我们自己来写代码的话,开发效率就会很低.我们不要重复的去造轮子,要学会使用已有的工具,来完善我们的项目,站在巨人的肩膀上去工作.<br>   npm是js世界里的一个伟大的社区,能够让开发者更加轻松的共享代码和共用代码片段或模块组件.</p>
+<p>   <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a>   # npm官网<br>   <a href="https://npm.taobao.org/" target="_blank" rel="noopener">https://npm.taobao.org/</a>  # 淘宝npm镜像</p>
+<p>   不要修改 [node_modules] + package-lock.json 这两个文件,因为它是使用npm去管理的</p>
+<h2 id="9-POST请求"><a href="#9-POST请求" class="headerlink" title="9.POST请求"></a>9.POST请求</h2><p>   相比较GET请求，POST请求比较复杂。<br>   因为Node.js认为，使用POST请求时，数据量会比较多。<br>   为了追求极致的效率，它将数据拆分成为了众多小的数据块(chunk)，然后通过特定的事件，将这些小数据块有序传递给回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var fs = require(&apos;fs&apos;);</span><br><span class="line">var querystring = require(&apos;querystring&apos;);</span><br><span class="line"></span><br><span class="line">var hostname = &apos;127.0.0.1&apos;;</span><br><span class="line">var port = 3000;</span><br><span class="line"></span><br><span class="line">var server = http.createServer(function(req,res)&#123;</span><br><span class="line">    if (req.url == &apos;/form&apos;) &#123;</span><br><span class="line">        // 读取表单加载页面</span><br><span class="line">        fs.readFile(&apos;./form.html&apos;, function(err, data)&#123;</span><br><span class="line">            res.writeHead(200, &#123;&apos;content-type&apos;: &apos;text/html;charset=UTF-8&apos;&#125;);</span><br><span class="line">            res.end(data);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; else if (req.url == &apos;/dopost&apos; &amp;&amp; req.method.toLocaleLowerCase() == &apos;post&apos;) &#123;</span><br><span class="line">        // 如果访问/dopost,且请求类型是post</span><br><span class="line">        // 进行POST数据处理</span><br><span class="line">        var postData = &apos;&apos;;</span><br><span class="line">        // node为了实现极致的效率,所以把post分成多个小份去传递</span><br><span class="line">        req.addListener(&apos;data&apos;, function (chunk)&#123;</span><br><span class="line">            postData += chunk;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        // 全部接收完毕</span><br><span class="line">        req.addListener(&apos;end&apos;, function()&#123;</span><br><span class="line">            console.log(postData);</span><br><span class="line"></span><br><span class="line">            // 将post字串转换为一个对象</span><br><span class="line">            var dataObj = querystring.parse(postData);</span><br><span class="line">            console.log(dataObj);</span><br><span class="line">            console.log(dataObj.name);</span><br><span class="line">            res.end(&apos;POST DATA Success!&apos;);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        res.end(&apos;404&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(port, hostname);</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-文件上传处理"><a href="#10-文件上传处理" class="headerlink" title="10.文件上传处理"></a>10.文件上传处理</h2><pre><code>原生写POST处理,比较复杂,要写两个监听.
+文件上传业务比较麻烦.所以,用第三方模块: `formidable`</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var fs = require(&apos;fs&apos;);</span><br><span class="line">var querystring = require(&apos;querystring&apos;);</span><br><span class="line">var formidable = require(&apos;formidable&apos;); // 处理表单数据</span><br><span class="line">var timestamp = require(&apos;time-stamp&apos;); // 时间</span><br><span class="line">var path = require(&apos;path&apos;); // 时间</span><br><span class="line"></span><br><span class="line">var hostname = &apos;127.0.0.1&apos;;</span><br><span class="line">var port = 3000;</span><br><span class="line"></span><br><span class="line">var server = http.createServer(function(req,res)&#123;</span><br><span class="line">    if (req.url == &apos;/form&apos;) &#123;</span><br><span class="line">        // 读取表单加载页面</span><br><span class="line">        fs.readFile(&apos;./form_file.html&apos;, function(err, data)&#123;</span><br><span class="line">            res.writeHead(200, &#123;&apos;content-type&apos;: &apos;text/html;charset=UTF-8&apos;&#125;);</span><br><span class="line">            res.end(data);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; else if (req.url == &apos;/dopost&apos; &amp;&amp; req.method.toLocaleLowerCase() == &apos;post&apos;) &#123;</span><br><span class="line">        // 如果访问/dopost,且请求类型是post</span><br><span class="line">        // formidable 处理 parse a file upload</span><br><span class="line">        var form = new formidable.IncomingForm();</span><br><span class="line"></span><br><span class="line">        // 设置上传目录</span><br><span class="line">        form.uploadDir = &quot;./uploads&quot;;</span><br><span class="line">        // 该模块已经将 POST数据 和 文件数据 分离处理</span><br><span class="line">        // 当代码执行到parse()方法的回调函数时,表单中的数据 就都已经处理好了</span><br><span class="line">        form.parse(req, function(err, fields, files) &#123;</span><br><span class="line">            // console.log(fields);</span><br><span class="line">            // console.log(files);</span><br><span class="line">            // 处理上传文件的存储</span><br><span class="line">            // 新文件名: 时间 + 随机数 + 后缀</span><br><span class="line">            var t = timestamp(&apos;YYYYMMDDHHmmss&apos;);</span><br><span class="line">            var ran = parseInt(Math.random()* 100000);</span><br><span class="line">            var extname = path.extname(files.myfile.name);</span><br><span class="line"></span><br><span class="line">            // 旧文件名</span><br><span class="line">            var oldPath = &apos;./&apos; + files.myfile.path;</span><br><span class="line">            // 新文件名</span><br><span class="line">            var newPath = &apos;./uploads/&apos; + t + ran + extname;</span><br><span class="line">            console.log(oldPath);</span><br><span class="line">            console.log(newPath);</span><br><span class="line"></span><br><span class="line">            // 实现改名</span><br><span class="line">            fs.rename(oldPath, newPath, function (err)&#123;</span><br><span class="line">                res.end(&apos;文件上传成功!!&apos;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        res.end(&apos;404&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(port, hostname);</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-ejs模版"><a href="#11-ejs模版" class="headerlink" title="11.ejs模版"></a>11.ejs模版</h2><pre><code>https://ejs.co/        #官网
+https://www.npmjs.com/package/ejs #npm上的ejs包
+ejs是Embedded JavaScript templates的简称,意思是嵌入式JavaScript模板.node中的后台模版.</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">var fs = require(&apos;fs&apos;);</span><br><span class="line">var hostname = &apos;127.0.0.1&apos;;</span><br><span class="line">var port = 3000;</span><br><span class="line"></span><br><span class="line">var server = http.createServer(function (req, res) &#123;</span><br><span class="line">    if (req.url == &apos;/&apos;) &#123;</span><br><span class="line">        fs.readFile(&apos;./views/index.ejs&apos;, function (err, data) &#123;</span><br><span class="line">            // 模版</span><br><span class="line">            // console.log(data);</span><br><span class="line">            var template = data.toString();</span><br><span class="line">            // console.log(template);</span><br><span class="line">            // 数据</span><br><span class="line">            var dict = &#123;</span><br><span class="line">                title: &apos;EJS 模版的使用&apos;,</span><br><span class="line">                content: &apos;我是段落内容....&apos;,</span><br><span class="line">                pic: &apos;./imgs/1.jpg&apos;,</span><br><span class="line">                songci : &#123;</span><br><span class="line">                    title: &apos;酒调歌头&apos;,</span><br><span class="line">                    list : [</span><br><span class="line">                        &apos;12345&apos;,</span><br><span class="line">                        &apos;67890&apos;,</span><br><span class="line">                        &apos;09876&apos;,</span><br><span class="line">                        &apos;54321&apos;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 绑定数据</span><br><span class="line">            var html = ejs.render(template, dict);</span><br><span class="line"></span><br><span class="line">            // 显示输出页面</span><br><span class="line">            res.writeHead(200, &#123;&apos;content-type&apos;:&apos;text/html&apos;&#125;);</span><br><span class="line">            res.end(html);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; else if (req.url == &apos;/imgs/1.jpg&apos;) &#123;</span><br><span class="line">        fs.readFile(&apos;./imgs/1.jpg&apos;, function (err, data) &#123;</span><br><span class="line">            res.writeHead(200, &#123;&apos;content-type&apos;:&apos;image/jpg&apos;&#125;);</span><br><span class="line">            res.end(data);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(port, hostname);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--index.ejs--&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;cn&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;&lt;%= title %&gt;&gt;&lt;/h1&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line"></span><br><span class="line">    &lt;p&gt;&lt;%= content %&gt;&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;%= content %&gt;&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;%= content %&gt;&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;%= content %&gt;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;img src=&quot;&lt;%= pic %&gt;&quot; width=&quot;300&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;h2&gt;&lt;%= songci.title %&gt;&lt;/h2&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;% for (var i = 0; i &lt; songci.list.length; i++) &#123; %&gt;</span><br><span class="line">        &lt;li&gt;&lt;%= songci.list[i] %&gt;&lt;/li&gt;</span><br><span class="line">        &lt;% &#125; %&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PS-V8引擎说明"><a href="#PS-V8引擎说明" class="headerlink" title="PS:V8引擎说明"></a>PS:V8引擎说明</h2><p>​    V8 JavaScript引擎是 Google用于其Chrome浏览器的底层JavaScript引擎。<br>​    Google使用V8创建了一个用C++编写的超快解释器，该解释器拥有另一个独特特征：<br>​    您可以下载该引擎并将其嵌入任何应用程序。<br>​    V8 JavaScript引擎并不仅限于在一个浏览器中运行。<br>​    因此，Node.js实际上会使用Google编写的V8 JavaScript引擎，并将其重建为可在服务器上使用。</p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="NI9NE wechat" style="width: 200px; max-width: 100%;">
+  <div>关注我的测试接口</div>
+</div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="NI9NE 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-quora"></i> JavaScript</a>
+          
+            <a href="/tags/Node-js/" rel="tag"><i class="fa fa-quora"></i> Node.js</a>
+          
+            <a href="/tags/express/" rel="tag"><i class="fa fa-quora"></i> express</a>
+          
+            <a href="/tags/npm/" rel="tag"><i class="fa fa-quora"></i> npm</a>
+          
+            <a href="/tags/ejs/" rel="tag"><i class="fa fa-quora"></i> ejs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/28/JavaScript Ajax/" rel="next" title="JavaScript Ajax">
+                <i class="fa fa-chevron-left"></i> JavaScript Ajax
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/13/JavaScript jQuery/" rel="prev" title="JavaScript jQuery">
+                JavaScript jQuery <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTQ3NS8yMTk4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/favicon.png" alt="NI9NE">
+  
+  <p class="site-author-name" itemprop="name">NI9NE</p>
+  <div class="site-description motion-element" itemprop="description">Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/NI9NE" title="GitHub &rarr; https://github.com/NI9NE" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://nodejs.cn/" title="http://nodejs.cn/" rel="noopener" target="_blank">Node.js</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bootcss.com/" title="https://www.bootcss.com/" rel="noopener" target="_blank">Bootstrap</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.expressjs.com.cn/" title="http://www.expressjs.com.cn/" rel="noopener" target="_blank">Express</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ejs.co/" title="https://ejs.co/" rel="noopener" target="_blank">Ejs</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js"><span class="nav-number">1.</span> <span class="nav-text">Node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于-Node-js"><span class="nav-number">1.1.</span> <span class="nav-text">1.关于 Node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1. 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-特点"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2. 特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-单线程"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1). 单线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-非阻塞I-O"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">2). 非阻塞I/O</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-事件驱动"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">3). 事件驱动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-三特点说明"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">4). 三特点说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Node-js-的优缺点-适合开发什么"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 Node.js 的优缺点,适合开发什么?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-优点"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">1). 优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-缺点"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">2). 缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-适用场景"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">3). 适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装使用node"><span class="nav-number">1.2.</span> <span class="nav-text">2.安装使用node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-windows环境安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 windows环境安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-搭建Node-js服务器"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 搭建Node.js服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-根目录-与-web容器"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 根目录 与 web容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HTTP模块"><span class="nav-number">1.3.</span> <span class="nav-text">3.HTTP模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-URL模块"><span class="nav-number">1.4.</span> <span class="nav-text">4.URL模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-文件系统"><span class="nav-number">1.5.</span> <span class="nav-text">5.文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-静态目录-文件加载-web容器"><span class="nav-number">1.6.</span> <span class="nav-text">6.静态目录 文件加载 (web容器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-模块的概念"><span class="nav-number">1.7.</span> <span class="nav-text">7.模块的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-输出变量-函数"><span class="nav-number">1.7.1.</span> <span class="nav-text">7.1 输出变量/函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-输出一个类-构造函数"><span class="nav-number">1.7.2.</span> <span class="nav-text">7.2 输出一个类(构造函数)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-模块关联关系"><span class="nav-number">1.7.3.</span> <span class="nav-text">7.3 模块关联关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-模块封装"><span class="nav-number">1.7.4.</span> <span class="nav-text">7.4 模块封装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-npm"><span class="nav-number">1.8.</span> <span class="nav-text">8.npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-POST请求"><span class="nav-number">1.9.</span> <span class="nav-text">9.POST请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-文件上传处理"><span class="nav-number">1.10.</span> <span class="nav-text">10.文件上传处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-ejs模版"><span class="nav-number">1.11.</span> <span class="nav-text">11.ejs模版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS-V8引擎说明"><span class="nav-number">1.12.</span> <span class="nav-text">PS:V8引擎说明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-chrome"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NI9NE</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+
+<script>
+  window.livereOptions = {
+    refer: '2018/07/10/JavaScript Node.js/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
