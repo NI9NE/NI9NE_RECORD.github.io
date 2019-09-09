@@ -8,12 +8,12 @@
         <category>开发资料</category>
       </categories>
       <tags>
+        <tag>Memcache</tag>
         <tag>SSH</tag>
         <tag>Linux</tag>
         <tag>Apache</tag>
         <tag>Nginx</tag>
-        <tag>memcached</tag>
-        <tag>redis</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
@@ -37,7 +37,7 @@
       </categories>
       <tags>
         <tag>接口</tag>
-        <tag>TP5</tag>
+        <tag>ThinkPHP5</tag>
         <tag>第三方登录</tag>
       </tags>
   </entry>
@@ -228,9 +228,9 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Node.js</tag>
+        <tag>express</tag>
         <tag>npm</tag>
         <tag>ejs</tag>
-        <tag>express</tag>
       </tags>
   </entry>
   <entry>
