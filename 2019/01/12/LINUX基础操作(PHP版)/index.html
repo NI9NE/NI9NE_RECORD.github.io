@@ -101,13 +101,13 @@
 <meta property="og:site_name" content="NI9NE&#39;s Zone">
 <meta property="og:description" content="ssh - Secure Shell 安全外壳协议(安全的远程连接)  1.服务器端配置安装: 安装:yum install openssh -server 启动:service sshd start 设置开机运行:chkconfig sshd on   查看启动服务: ps -ef|grep ssh  2.客户端配置:Windows: XShell/Putty Linux: yum instal">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="c:%5CUsers%5CNI9NE%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1567947579354.png">
-<meta property="og:image" content="c:%5CUsers%5CNI9NE%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1568001116845.png">
-<meta property="og:updated_time" content="2019-09-09T10:44:08.305Z">
+<meta property="og:image" content="http://ni9ne.github.io/images/imgs/1567947579354.png">
+<meta property="og:image" content="http://ni9ne.github.io/images/imgs/1568001116845.png">
+<meta property="og:updated_time" content="2019-09-09T10:46:12.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LINUX基础操作(PHP版)">
 <meta name="twitter:description" content="ssh - Secure Shell 安全外壳协议(安全的远程连接)  1.服务器端配置安装: 安装:yum install openssh -server 启动:service sshd start 设置开机运行:chkconfig sshd on   查看启动服务: ps -ef|grep ssh  2.客户端配置:Windows: XShell/Putty Linux: yum instal">
-<meta name="twitter:image" content="c:%5CUsers%5CNI9NE%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1567947579354.png">
+<meta name="twitter:image" content="http://ni9ne.github.io/images/imgs/1567947579354.png">
 
 
 
@@ -503,7 +503,7 @@
 <p>​    cpu个数和核数:<code>cat /proc/cpuinfo</code></p>
 <h3 id="3-文件-文件夹操作"><a href="#3-文件-文件夹操作" class="headerlink" title="3.文件/文件夹操作"></a>3.文件/文件夹操作</h3><h4 id="1-文件目录结构"><a href="#1-文件目录结构" class="headerlink" title="1).文件目录结构"></a>1).文件目录结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 根目录`/`</span><br><span class="line">- 家目录`/home`</span><br><span class="line">- 临时目录`/tmp`</span><br><span class="line">- 配置目录`/etc`</span><br><span class="line">- 用户程序目录`/usr`</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:%5CUsers%5CNI9NE%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1567947579354.png" alt="1567947579354"></p>
+<p><img src="/images/imgs/1567947579354.png" alt="1567947579354"></p>
 <h4 id="2-基本操作命令"><a href="#2-基本操作命令" class="headerlink" title="2).基本操作命令"></a>2).基本操作命令</h4><p>​        - 查看目录下文件:<code>ls -al</code></p>
 <p>​        - 新建文件:<code>touch</code></p>
 <p>​        - 新建文件夹:<code>mkdir</code>     -p</p>
@@ -631,7 +631,7 @@
 <h4 id="5-反向代理-负载均衡"><a href="#5-反向代理-负载均衡" class="headerlink" title="5.反向代理/负载均衡"></a>5.反向代理/负载均衡</h4><p>1.原理</p>
 <p>反向代理: 用户-&gt;Nginx服务器-&gt;真实资源服务器</p>
 <p>负载均衡: 多服务器承载相同的请求</p>
-<p><img src="C:%5CUsers%5CNI9NE%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1568001116845.png" alt="1568001116845"></p>
+<p><img src="/images/imgs/1568001116845.png" alt="1568001116845"></p>
 <p>2.配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">文件路径: conf.d/naxx.conf</span><br><span class="line">upstream naxx_hosts&#123;</span><br><span class="line">	server xxx.xxx.xxx.xx1:80 weight=5; #(权重配置)</span><br><span class="line">	server xxx.xxx.xxx.xx2:80 weight=1;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">	listen 		80;</span><br><span class="line">	server_name www.naxx.test;</span><br><span class="line">	root  /data/www;</span><br><span class="line">	index index.html index.htm;</span><br><span class="line">	location / &#123;</span><br><span class="line">		proxy_set_header Host www.ni9ne.net;</span><br><span class="line">		proxy_pass http://naxx_hosts;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
