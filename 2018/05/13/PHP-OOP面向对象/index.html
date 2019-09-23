@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="2.面向对象1.类简介 主要内容包括 类 和 对象  1.类 ​    class类中主要两种元素，函数（方法），变量（属性） ​    函数不调用不执行功能，类不实例化为对象无法使用  设计类的时候，需要考虑什么：（一切皆对象） 该类有什么（属性）？ 该类会什么（方法）？  注意：  类本身是无法执行的，本身是虚构的，不存在的 对象才是真正能使用的   类与对象之间的关系  类 就是对象的抽象化">
+<meta name="keywords" content="PHP,后端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP-OOP面向对象">
+<meta property="og:url" content="http://ni9ne.github.io/2018/05/13/PHP-OOP面向对象/index.html">
+<meta property="og:site_name" content="NI9NE&#39;s Zone">
+<meta property="og:description" content="2.面向对象1.类简介 主要内容包括 类 和 对象  1.类 ​    class类中主要两种元素，函数（方法），变量（属性） ​    函数不调用不执行功能，类不实例化为对象无法使用  设计类的时候，需要考虑什么：（一切皆对象） 该类有什么（属性）？ 该类会什么（方法）？  注意：  类本身是无法执行的，本身是虚构的，不存在的 对象才是真正能使用的   类与对象之间的关系  类 就是对象的抽象化">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-19T12:52:43.736Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP-OOP面向对象">
+<meta name="twitter:description" content="2.面向对象1.类简介 主要内容包括 类 和 对象  1.类 ​    class类中主要两种元素，函数（方法），变量（属性） ​    函数不调用不执行功能，类不实例化为对象无法使用  设计类的时候，需要考虑什么：（一切皆对象） 该类有什么（属性）？ 该类会什么（方法）？  注意：  类本身是无法执行的，本身是虚构的，不存在的 对象才是真正能使用的   类与对象之间的关系  类 就是对象的抽象化">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://ni9ne.github.io/2018/05/13/PHP-OOP面向对象/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>PHP-OOP面向对象 | NI9NE's Zone</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/NI9NE" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NI9NE's Zone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ni9ne.github.io/2018/05/13/PHP-OOP面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NI9NE">
+      <meta itemprop="description" content="TECH OTAKU SAVE THE WORLD">
+      <meta itemprop="image" content="/images/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NI9NE's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP-OOP面向对象
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-13 22:13:41" itemprop="dateCreated datePublished" datetime="2018-05-13T22:13:41+08:00">2018-05-13</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="2-面向对象"><a href="#2-面向对象" class="headerlink" title="2.面向对象"></a>2.面向对象</h2><h3 id="1-类简介"><a href="#1-类简介" class="headerlink" title="1.类简介"></a>1.类简介</h3><blockquote>
+<p>主要内容包括 类 和 对象</p>
+</blockquote>
+<p>1.类</p>
+<p>​    class类中主要两种元素，函数（方法），变量（属性）</p>
+<p>​    函数不调用不执行功能，类不实例化为对象无法使用</p>
+<ol start="2">
+<li><p>设计类的时候，需要考虑什么：（一切皆对象）</p>
+<p>该类有什么（属性）？</p>
+<p>该类会什么（方法）？</p>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>类本身是无法执行的，本身是虚构的，不存在的</li>
+<li>对象才是真正能使用的</li>
+</ul>
+</li>
+<li><p>类与对象之间的关系</p>
+<ul>
+<li>类 就是对象的抽象化</li>
+<li>对象 就是类的实例化</li>
+</ul>
+</li>
+<li><p>格式</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class 类名</span><br><span class="line">&#123;</span><br><span class="line">       成员属性</span><br><span class="line">       成员方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Beauty</span><br><span class="line">&#123;</span><br><span class="line">	public $name = &apos;迪丽热巴&apos;;		#属性</span><br><span class="line">	public $age = 18;</span><br><span class="line">	public $weight = &apos;90斤&apos;;</span><br><span class="line">	public $height = &apos;180cm&apos;;</span><br><span class="line"></span><br><span class="line">	public function skill1()		#方法</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;吹&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	public function skill2()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;拉&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	public function skill3()</span><br><span class="line">	&#123;	</span><br><span class="line">		echo &apos;弹&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	public function skill4()</span><br><span class="line">	&#123;	</span><br><span class="line">		echo &apos;唱&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$obj = new Beauty;		#实例化</span><br><span class="line"></span><br><span class="line">echo $obj-&gt;name;		#对象 -&gt; 属性名</span><br><span class="line">echo $obj-&gt;height;</span><br><span class="line">echo $obj-&gt;weight;</span><br><span class="line"></span><br><span class="line">$obj-&gt;skill1();		#对象 -&gt; 方法名()</span><br><span class="line">$obj-&gt;skill2();</span><br><span class="line">$obj-&gt;skill3();</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<p>​    1、在使用之前，要先将类实例化为对象，即：<code>类-&gt;对象</code> </p>
+<p>​     <code>$对象名 = new 类名;</code>     </p>
+<p>​    2、输出属性时，格式为：<code>对象 -&gt; 属性名</code> </p>
+<p>​     <code>echo $obj-&gt;name;</code></p>
+<p>​    3、调用方法时，格式为：<code>对象 -&gt; 方法名()</code> </p>
+<p>​     <code>$obj-&gt;skill();</code> </p>
+<h3 id="2-伪对象"><a href="#2-伪对象" class="headerlink" title="2.伪对象"></a>2.伪对象</h3><p>1.定义</p>
+<p>​    在类的内部，可以使用自己的属性or方法，此时， <code>$this</code> 代表当前对象</p>
+<p>称为伪对象</p>
+<p>2.实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Beauty</span><br><span class="line">	&#123;</span><br><span class="line">		public $name = &apos;迪丽热巴&apos;;</span><br><span class="line">		public $age = 18;</span><br><span class="line">		public $weight = &apos;90斤&apos;;</span><br><span class="line">		public $height = &apos;180cm&apos;;</span><br><span class="line">		public function skill1()&#123;echo &apos;吹&apos;;&#125;</span><br><span class="line">		public function skill2()&#123;echo &apos;拉&apos;;&#125;</span><br><span class="line">		public function skill3()&#123;echo &apos;弹&apos;;&#125;</span><br><span class="line">		public function skill4()&#123;echo &apos;唱&apos;;&#125;</span><br><span class="line">		public function demo()&#123;</span><br><span class="line">// 类的内部, 使用自己的属性or方法</span><br><span class="line">				$x = new Beauty;</span><br><span class="line">				echo $x-&gt;name;</span><br><span class="line">				$x-&gt;skill4();</span><br><span class="line">				echo &apos;&lt;hr&gt;&apos;;</span><br><span class="line"></span><br><span class="line">				echo $this-&gt;name;</span><br><span class="line">				$this-&gt;skill4();</span><br><span class="line">				echo &apos;&lt;hr&gt;&apos;;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<p>​    伪对象<code>$this</code>代表当前对象, 在哪个类中使用, 就相当于<code>$this = new 当前类名</code> </p>
+<p>​     <code>$this</code>不需要实例化, 可直接使用. </p>
+<p>​     <code>$this</code>只能在类内使用</p>
+<h3 id="3-连贯操作"><a href="#3-连贯操作" class="headerlink" title="3.连贯操作"></a>3.连贯操作</h3><p>​    若要在执行时连续调用方法，可采用如下格式：</p>
+<p>​    1. <code>$obj-&gt;step1()-&gt;step2()-&gt;step3()...;</code></p>
+<p>​    2.将连续调用的前面的方法加上<code>return $this</code> </p>
+<p>注意：若直接采用1，而不return返回对象，会报错 <code>Call to a member function step2() on null</code> 相当于<code>null-&gt;step2()</code></p>
+<h3 id="4-魔术方法"><a href="#4-魔术方法" class="headerlink" title="4.魔术方法"></a>4.魔术方法</h3><h4 id="1-定义："><a href="#1-定义：" class="headerlink" title="1.定义："></a>1.定义：</h4><p>​    魔术方法，就是在指定条件触发时，会自动调用的方法，这里主要介绍两种</p>
+<p>​    <code>__construct()</code> 构造方法</p>
+<p>​    <code>__destruct()</code> 析构方法</p>
+<h4 id="2-构造方法"><a href="#2-构造方法" class="headerlink" title="2.构造方法"></a>2.构造方法</h4><p>​    触发条件：在实例化时，自动触发</p>
+<p>​    使用场合：常用于初始化属性</p>
+<p>​    注意：一般构造都写在方法的最前面，属性的最后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Lengend</span><br><span class="line">&#123;</span><br><span class="line">	#构造方法</span><br><span class="line">	public function __construct()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;&lt;h1&gt;欢迎来到召唤师峡谷&lt;/h1&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	#普通方法</span><br><span class="line">	public function demo()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;升段局，掉2挂1，人马加大树强撑40分钟，队友重连绝地翻盘&lt;hr&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$obj=new Lengend;</span><br><span class="line">$obj-&gt;__construct();</span><br><span class="line">// $obj-&gt;demo();</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-析构方法"><a href="#3-析构方法" class="headerlink" title="3.析构方法"></a>3.析构方法</h4><p>​    触发条件：当对象被销毁时，自动触发，包括：</p>
+<p>​        1）.程序全部执行完，自然销毁</p>
+<p>​        2）.对象被主动删除了</p>
+<p>​        3）.对象被覆盖了（更换）</p>
+<p>​    使用场合：当对象使用完的一些扫尾操作（fclose、closedir）</p>
+<p>​    注意：一般析构方法都写在方法的最后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Lengend</span><br><span class="line">&#123;</span><br><span class="line">	public function demo()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;开始一盘游戏&apos;;</span><br><span class="line">		echo &apos;&lt;hr&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	public function __destruct()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;关上电脑&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$obj=new Lengend;</span><br><span class="line">$obj-&gt;demo();</span><br><span class="line">echo &apos;断电了&lt;br&gt;&apos;;</span><br><span class="line"></span><br><span class="line">unset($obj);		#2)对象被主动删除</span><br><span class="line"></span><br><span class="line">$obj=&apos;迪丽热巴&apos;;		 #3)换对象了</span><br><span class="line">						#1)自然结束，就会销毁$obj,从而触发析构</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-实例化PDO类"><a href="#4-实例化PDO类" class="headerlink" title="4.实例化PDO类"></a>4.实例化PDO类</h4><p>​    PDO 数据抽象层，专门负责数据库操作管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$dsn=&apos;mysql:host=localhost;dbname=&apos;test&apos;;charset=utf8;</span><br><span class="line">$user=&apos;root&apos;;</span><br><span class="line">$pwd=&apos;&apos;;</span><br><span class="line">$pdo=new PDO($dsn,$user,$pwd);	#1.链接数据库</span><br><span class="line">$sql=&apos;select id,nickname,tel,address from user&apos;;  #2.编写sql语句</span><br><span class="line">$pdostatement=$pdo-&gt;query($sql);	#3.执行sql语句</span><br><span class="line">$result=$pdostatement-&gt;fetchAll(PDO::FETCH_NUM);	#4.解析对象</span><br><span class="line">var_dump($result);	#5.输出结果</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<p>​    1.<code>PDO类::方法</code> </p>
+<ul>
+<li><p>PDO::query( )        执行一条SQL语句</p>
+<p>成功返回PSOStatement，适合查询，失败返回false</p>
+</li>
+<li><p>PDO::exec( )                   执行一条SQL语句</p>
+<p>成功返回受影响的行数，适合增删改，失败返回false</p>
+</li>
+<li><p>PDO::lastInsertId( )       获取最近一次插入的ID</p>
+<p>成功返回最新的id，失败返回 <code>&#39;0&#39;</code> 字符</p>
+</li>
+<li><p>PDO::errorInfo( )           获取错误信息</p>
+</li>
+</ul>
+<p>​    2.<code>PDOStatement类::方法</code></p>
+<ul>
+<li>PDOStatement::fetch( )      获取结果集中的一条数据（依靠指针）失败返回false</li>
+<li>PDOStatement::fetchAll( )     获取结果集中的所有数据，参数设置显示格式<ul>
+<li>PDO::FETCH_NUM    索引数组格式</li>
+<li>PDO::FETCH_ASSOC     关联数组格式</li>
+<li>PDO::FETCH_BOTH       混合数组格式</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-OOP面向对象"><a href="#3-OOP面向对象" class="headerlink" title="3.OOP面向对象"></a>3.OOP面向对象</h2><p>面向对象OOP的三大特性：1.封装性 ；2.继承性 ；3.多态性</p>
+<h3 id="1-封装性"><a href="#1-封装性" class="headerlink" title="1.封装性"></a>1.封装性</h3><ul>
+<li><p>定义：将对象的所有成员结合在一起，形成一个不可分割的独立单位</p>
+</li>
+<li><p>目的：尽可能的隐藏属性 和 方法，只留下部分接口与外部联系</p>
+</li>
+<li><p>提供以下三种修饰符，来控制与外部的联系</p>
+<table>
+<thead>
+<tr>
+<th align="center">修饰符</th>
+<th align="center">本类</th>
+<th align="center">继承类</th>
+<th align="center">类外</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">public</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">公有的</td>
+</tr>
+<tr>
+<td align="center">protected</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">x</td>
+<td align="center">受保护的</td>
+</tr>
+<tr>
+<td align="center">private</td>
+<td align="center">√</td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center">私有的</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>想要有高安全性 或者 只想自己使用的，最好设置为private。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-魔术方法"><a href="#2-魔术方法" class="headerlink" title="2.魔术方法"></a>2.魔术方法</h3><blockquote>
+<p>如果在类外使用私有属性或方法，程序会立即终止并报错</p>
+<p>为了避免终止程序，可以使用一些魔术方法做提示，并绕过error错误</p>
+</blockquote>
+<ul>
+<li><p><code>__get($x)</code></p>
+<p>当访问权限不足或不存在的属性时，自动触发，返回访问属性名</p>
+</li>
+<li><p><code>__set($x,$y)</code> </p>
+<p>当设置权限不足或不存在的属性时，自动触发，返回设置属性名和值</p>
+</li>
+<li><p><code>__unset($x)</code> </p>
+<p>当删除权限不足或不存在的属性时，自动触发，返回要删除的属性名</p>
+</li>
+<li><p><code>__isset($x)</code> </p>
+<p>当判断是否存在的目标权限不足或不存在时触发，返回要判断的属性名</p>
+</li>
+<li><p><code>__call($x,$y)</code> </p>
+<p>当访问权限不足或不存在的方法时，自动触发，返回方法名和实参</p>
+</li>
+<li><p><code>__tostring()</code> </p>
+<p>当echo对象时触发，返回字符串值</p>
+</li>
+</ul>
+<h3 id="3-继承性"><a href="#3-继承性" class="headerlink" title="3.继承性"></a>3.继承性</h3><ol>
+<li><p>定义：<strong>子类</strong>（-派生类/扩展类）继承<strong>父类</strong>（基础类/基类）的一些属性和方法</p>
+</li>
+<li><p>格式</p>
+<p><code>class 子类 extends 父类 {}</code> </p>
+</li>
+<li><p>实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class laozi</span><br><span class="line">&#123;</span><br><span class="line">	public $name = &apos;老王&apos;;</span><br><span class="line">	public function skill()</span><br><span class="line">	&#123;</span><br><span class="line">		echo  &apos;喜欢去隔壁转转 &lt;br&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class son extends laozi</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line">$obj = new son;		#实例化子类</span><br><span class="line">echo $obj-&gt;name;	#直接调用子类继承的属性</span><br><span class="line">$obj-&gt;skill();		#直接调用子类继承的方法</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特点</p>
+</li>
+</ol>
+<ul>
+<li><p>子类可以继承属性，方法（除了private）</p>
+</li>
+<li><p>子类可以重写属性，方法</p>
+</li>
+<li><p>子类可以扩展方法 <code>parent::父级方法名</code> </p>
+</li>
+<li><p>访问级别：</p>
+<p><code>private&gt;protected&gt;public</code> </p>
+<p>子类继承父类时，修饰符可以保留等级，可以降级，就是不能升级</p>
+</li>
+</ul>
+<ol start="5">
+<li>继承方式<ol>
+<li>单继承（一个子级可以继承一个父级）</li>
+<li>连续继承（爷-&gt;父-&gt;子-&gt;孙   依次继承）</li>
+<li>多继承（无法在PHP中实现）</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-类静态"><a href="#4-类静态" class="headerlink" title="4.类静态"></a>4.类静态</h3><p>1.关键字：</p>
+<p>​     <strong>static</strong>   </p>
+<p>2.格式：</p>
+<p>​    <code>static 修饰符 $属性名=属性值；</code> </p>
+<p>​    <code>static 修饰符  function  方法名（）{};</code> </p>
+<p>3.使用格式：</p>
+<p>​    <code>类名::静态属性名</code> / <code>类名::静态方法名()</code> </p>
+<p>​    self 代表当前的类名，只能在类内使用</p>
+<p>​    $this 代表当前的对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Beauty</span><br><span class="line">&#123;</span><br><span class="line">	static public $name = &apos;小张&apos;;		#设置静态属性</span><br><span class="line">	// public $age = 18;		#静态类内不能使用非静态属性</span><br><span class="line">	static public function demo()	#设置静态方法</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;i am static demo &lt;hr&gt;&apos;;</span><br><span class="line">		echo self::$name;	#类内调用静态属性</span><br><span class="line">		echo &apos;&lt;hr&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">Beauty::demo();		#引用静态方法</span><br></pre></td></tr></table></figure>
+
+<p>4.特性：</p>
+<ul>
+<li>静态属性或方法 不需要实例化就可以直接使用</li>
+<li>静态方法内部只能使用静态属性或方法</li>
+<li>静态属性和方法可以继承</li>
+</ul>
+<p>5.魔术方法</p>
+<p>​     <code>__callStatic($x,$y)</code> </p>
+<p>​    在访问不存在的静态方法时，自动触发，返回静态方法名和实参</p>
+<h3 id="5-类常量"><a href="#5-类常量" class="headerlink" title="5.类常量"></a>5.类常量</h3><p>1.格式</p>
+<p>​    <code>const  类常量名=值；</code> </p>
+<p>2.使用类常量</p>
+<p>​    <code>类名::类常量</code> </p>
+<p>3.特性</p>
+<ul>
+<li>类常量可以继承，且可以重写一次</li>
+<li>普通常量可以直接在类内使用（常量没有作用域）</li>
+<li>类常量不能直接在类外使用，必须要通过类名来使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const NAME = &apos;黑寡妇&apos;;</span><br><span class="line">class Beauty</span><br><span class="line">&#123;</span><br><span class="line">	const SEX = &apos;美女&apos;;	#定义类常量</span><br><span class="line">	public function demo()</span><br><span class="line">	&#123;</span><br><span class="line">		echo self::SEX;</span><br><span class="line">		echo NAME; 	# 直接输出类外的 普通常量NAME</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">echo Beauty::SEX;	#输出类内常量</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-最终-final"><a href="#6-最终-final" class="headerlink" title="6.最终 final"></a>6.最终 final</h3><h4 id="1-使用："><a href="#1-使用：" class="headerlink" title="1.使用："></a>1.使用：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">final class Beauty		#final 修饰类，保护不被继承</span><br><span class="line">	&#123;</span><br><span class="line">		public $name = &apos;陈琳琳&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	------------------------------------------------------</span><br><span class="line">class Father</span><br><span class="line">	&#123;</span><br><span class="line">		final public function Order()	#final修饰方法</span><br><span class="line">		&#123;</span><br><span class="line">			echo &apos;这是祖辈留下的祖训: 不能吃猪肉 &lt;br&gt;&apos;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-特性"><a href="#2-特性" class="headerlink" title="2.特性"></a>2.特性</h4><ul>
+<li>final 可以修饰类和方法，不能修饰属性</li>
+<li>final 修饰类，保护类不被继承</li>
+<li>final 修饰方法，保护方法不被继承方法重写</li>
+</ul>
+<h3 id="7-克隆对象-clone"><a href="#7-克隆对象-clone" class="headerlink" title="7.克隆对象 clone"></a>7.克隆对象 clone</h3><h4 id="1-格式"><a href="#1-格式" class="headerlink" title="1.格式"></a>1.格式</h4><p>​     <code>副本对象 = clone 样本对象；</code> </p>
+<h4 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Beauty</span><br><span class="line">	&#123;</span><br><span class="line">		public $name = &apos;米拉乔沃维奇&apos;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	$a = new Beauty;	#创建一个对象</span><br><span class="line">	$b = clone $a;		#克隆对象</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-特性"><a href="#3-特性" class="headerlink" title="3.特性"></a>3.特性</h4><p>​    副本与样本对象完全一样，却互不影响，完全独立</p>
+<blockquote>
+<p>克隆（clone）与复制出来的对象不一样，修改克隆副本对原样本没有任何影响，而修改复制对象则会影响原样本，相同点是删除副本对原样本都没有影响，原因如下：</p>
+<p>​    变量与内存是通过标识来引用的；</p>
+<p>​    删除原样本，只是删除元样本和标识之间 的联系，与复制副本无关；</p>
+<p>​    息息相关的只是内存的内容</p>
+</blockquote>
+<h4 id="4-克隆魔术方法"><a href="#4-克隆魔术方法" class="headerlink" title="4.克隆魔术方法"></a>4.克隆魔术方法</h4><h5 id="1-函数："><a href="#1-函数：" class="headerlink" title="1.函数："></a>1.函数：</h5><p>​    <code>__clone()</code> </p>
+<h5 id="2-作用："><a href="#2-作用：" class="headerlink" title="2.作用："></a>2.作用：</h5><p>​    克隆操作时触发，可以为克隆副本重新初始化属性</p>
+<h5 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Demo</span><br><span class="line">&#123;</span><br><span class="line">	public $name=&apos;kamora&apos;;</span><br><span class="line">	public function __clone()</span><br><span class="line">	&#123;</span><br><span class="line">		$this-&gt;name=&apos;kamora2&apos;;	#克隆对象重写</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a=new Demo;</span><br><span class="line">$b=clone $a;	#克隆操作</span><br><span class="line"></span><br><span class="line">var_dump($a,$b);</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-串行化-序列化"><a href="#8-串行化-序列化" class="headerlink" title="8.串行化/序列化"></a>8.串行化/序列化</h3><h4 id="1-函数"><a href="#1-函数" class="headerlink" title="1.函数"></a>1.函数</h4><p>​    串行化： <code>serialize( )</code> </p>
+<p>​    反串行化： <code>unserialize( )</code> </p>
+<h4 id="2-目的"><a href="#2-目的" class="headerlink" title="2.目的"></a>2.目的</h4><p>​    将对象串行化为字符串</p>
+<h4 id="3-使用场景"><a href="#3-使用场景" class="headerlink" title="3.使用场景"></a>3.使用场景</h4><p>​    传参，存入文本，存数据库 …</p>
+<h4 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$obj=new Game;			#创建一个对象</span><br><span class="line">$str= serialize($obj);		#串行化对象，存入变量</span><br><span class="line">file_put_contents(&apos;./save.txt&apos;,$str);	#将变量内容存入文件</span><br><span class="line"></span><br><span class="line">$newStr=file_get_contents(&apos;./save.txt&apos;);  #读取文件内容	</span><br><span class="line">$newObj=unserialize($newStr);	#对读取内容反串行化</span><br><span class="line">$newObj-&gt;skill();	#使用对象属性方法</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-串行化魔术方法"><a href="#5-串行化魔术方法" class="headerlink" title="5.串行化魔术方法"></a>5.串行化魔术方法</h4><h5 id="1-函数：-1"><a href="#1-函数：-1" class="headerlink" title="1.函数："></a>1.函数：</h5><ul>
+<li><code>__sleep( )</code>         </li>
+</ul>
+<p>​    serialize串行化时触发,用以返回需要的信息(数组形式)</p>
+<ul>
+<li><p><code>__wakeup( )</code>           </p>
+<p>unserialize反串行化时触发, 用以重新初始化属性</p>
+</li>
+</ul>
+<h5 id="2-应用"><a href="#2-应用" class="headerlink" title="2.应用:"></a>2.应用:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Game</span><br><span class="line">&#123;</span><br><span class="line">	public $name = &apos;DNF&apos;;</span><br><span class="line">	public $money = 200000;</span><br><span class="line">	public function skill()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;崩山斩&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	public function __sleep()</span><br><span class="line">	&#123;</span><br><span class="line">		// 返回需要显示的信息(以数组形式返回)</span><br><span class="line">		return [&apos;name&apos;,&apos;nickname&apos;];</span><br><span class="line">	&#125;	//其余信息隐藏,实际上还是存在</span><br><span class="line">  </span><br><span class="line">	public function __wakeup()</span><br><span class="line">	&#123;</span><br><span class="line">		// 在唤醒时, 重新初始化属性</span><br><span class="line">		$this-&gt;money = 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-魔术方法—自动加载"><a href="#9-魔术方法—自动加载" class="headerlink" title="9.魔术方法—自动加载"></a>9.魔术方法—自动加载</h3><blockquote>
+<p>在真实项目中 , 一个PHP文件内 , 只有一个类 , 没有多余的代码，可以在多PHP相互加载的状态下的纯PHP界面省略定界符<code>&lt;?= ?&gt;</code> 中的后面部分，需要引入的HTML文件使用 <code>include / include</code> 加载    </p>
+</blockquote>
+<h4 id="1-格式-1"><a href="#1-格式-1" class="headerlink" title="1.格式"></a>1.格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function __autoload($x)</span><br><span class="line">&#123;</span><br><span class="line">       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-作用"><a href="#2-作用" class="headerlink" title="2.作用 :"></a>2.作用 :</h4><p>​        在实例化一个不存在的类时 ,  自动触发 ,  返回要求实例化的类名</p>
+<h4 id="3-使用场景-1"><a href="#3-使用场景-1" class="headerlink" title="3.使用场景 :"></a>3.使用场景 :</h4><p>​        使用数据库功能  ,  上传文件功能  ,  图形验证码功能等….</p>
+<h4 id="4-实例-1"><a href="#4-实例-1" class="headerlink" title="4.实例:"></a>4.实例:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">一次性加载所有的类文件:</span><br><span class="line">function __autoload()</span><br><span class="line">&#123;							#如果相关类文件存在</span><br><span class="line">       if( file_exists(&quot;./Model/&#123;$x&#125;.php&quot;) )&#123;</span><br><span class="line">           include &quot;./Model/&#123;$x&#125;.php&quot;;</span><br><span class="line">       &#125;else&#123;</span><br><span class="line">           header(&apos;location:404.php&apos;);	#跳转到404页面</span><br><span class="line">           die;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">$a=new DB;	#实例化数据库类</span><br><span class="line">$b=new Upload;	#实例化上传类</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-抽象"><a href="#10-抽象" class="headerlink" title="10.抽象"></a>10.抽象</h3><h4 id="1-抽象"><a href="#1-抽象" class="headerlink" title="1.抽象"></a>1.抽象</h4><blockquote>
+<p>抽象方法 : 没有方法体( 代码块 ) 的方法</p>
+<p>抽象类 : 包含抽象方法的类</p>
+</blockquote>
+<p>1.关键字</p>
+<p>​    <code>abstract</code> </p>
+<p>2.特性</p>
+<ul>
+<li>包含抽象方法的类必须为抽象类</li>
+<li>抽象类不一定需要包含抽象方法</li>
+<li>抽象类不能被实例化</li>
+<li>抽象类必须被子类继承 , 并实现抽象方法</li>
+</ul>
+<p>3.目的</p>
+<p>​    强制约束子类继承并实现抽象方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   abstract class Demo			#定义抽象类</span><br><span class="line">&#123;</span><br><span class="line">           public function func1()</span><br><span class="line">           &#123;</span><br><span class="line">               echo &apos;该项目已经完成了 20% &lt;br&gt;&apos;;</span><br><span class="line">           &#125;</span><br><span class="line">           abstract public function func2(); 	#定义抽象方法</span><br><span class="line">	&#125;</span><br><span class="line">    class Friend extends Demo		#子类继承抽象类</span><br><span class="line">    &#123;</span><br><span class="line">           public function func2()		#子类事项抽象方法</span><br><span class="line">           &#123;</span><br><span class="line">               echo &apos;该项目已经完成了 30% &lt;br&gt;&apos;;</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">$obj = new Friend;		#实例化子类,调用方法</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-接口"><a href="#2-接口" class="headerlink" title="2.接口"></a>2.接口</h4><p>1.定义</p>
+<p>​    当类中全部都是抽象方法时,可定义为接口    </p>
+<p>​    即接口就是抽象类( 条件 : 内部方法全部为抽象方法 ) </p>
+<p>2.特性</p>
+<p>​    接口继承是通过 <code>implements</code> 关键字继承的 (不是extends)</p>
+<p>​    接口可以实现多继承( 可以有多个父类,分别实现各个父类继承的抽象方法 )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   interface Demo	#定义接口Demo</span><br><span class="line">   &#123;</span><br><span class="line">       public function func1();	#内部方法全部为抽象方法</span><br><span class="line">       public function func2();</span><br><span class="line">       public function func3();</span><br><span class="line">   &#125;	</span><br><span class="line">   class Friend implements Demo  #子类继承Demo</span><br><span class="line">&#123;</span><br><span class="line">	public function func1()		#子类实现继承的抽象方法</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;该项目已经完成了 20% &lt;br&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public function func2()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;该项目已经完成了 50% &lt;br&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public function func3()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &apos;该项目已经完成了 30% &lt;br&gt;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$obj = new Friend;	#实例化子类</span><br><span class="line">$obj-&gt;func1();		#调用Demo方法</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-类型约束"><a href="#3-类型约束" class="headerlink" title="3.类型约束"></a>3.类型约束</h4><blockquote>
+<p>PHP支持的函数实参类型约束有<strong>数组</strong>和<strong>对象</strong> </p>
+</blockquote>
+<p>格式 : 方法名( 类名 变量 )|方法名( array 变量 )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function demo(array $x)	#约束送入的实参只能是数组类型</span><br><span class="line">	&#123;</span><br><span class="line">		var_dump($x);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	// demo($a=100);	#送入整型数据程序报错</span><br><span class="line">	$b = [10,20,30];	</span><br><span class="line">	demo($b);			#送入数组,正常输出</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Demo1 &#123;&#125;</span><br><span class="line"></span><br><span class="line">class Demo2</span><br><span class="line">&#123;</span><br><span class="line">	public function Test(Demo1 $x)  #要求送入Demo1对象</span><br><span class="line">	&#123;</span><br><span class="line">		var_dump($x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Demo3 &#123;&#125;</span><br><span class="line"></span><br><span class="line">$demo1 = new Demo1;		#实例化类,得到对象</span><br><span class="line">$demo2 = new Demo2;</span><br><span class="line">$demo3 = new Demo3;</span><br><span class="line"></span><br><span class="line">$demo2-&gt;Test($var=100);		#送入整型数据,程序报错</span><br><span class="line">$demo1-&gt;Test($demo1);	#送入demo1,正常输出</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-接口多态性"><a href="#4-接口多态性" class="headerlink" title="4.接口多态性"></a>4.接口多态性</h4><blockquote>
+<p>多态性 : 通过同一个接口 [ 抽象类|普通类 ] ,传入不同的设备,从而实现不同的效果</p>
+<p>( 普通类没有强制约束子类执行指定方法的特征 , 不推荐使用 )</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">interface USB		#定义接口</span><br><span class="line">&#123;</span><br><span class="line">       public function run();</span><br><span class="line">&#125;					#指定抽象方法,一旦实现USB必须执行run方法</span><br><span class="line">class Mouse implements USB		#继承抽象类</span><br><span class="line">&#123;</span><br><span class="line">       public function run()		#实现抽象方法</span><br><span class="line">       &#123;</span><br><span class="line">           echo &apos;安装鼠标驱动&apos;;</span><br><span class="line">       &#125;</span><br><span class="line">       public function double()	#扩展接入接口的子类方法</span><br><span class="line">       &#123;</span><br><span class="line">           echo &apos;双击功能实现&apos;;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Keyboard implements USB</span><br><span class="line">&#123;</span><br><span class="line">       public function run()</span><br><span class="line">       &#123;</span><br><span class="line">           echo &apos;安装键盘驱动&apos;;</span><br><span class="line">       &#125;</span><br><span class="line">       public function click()</span><br><span class="line">       &#123;</span><br><span class="line">           echo &apos;击键功能实现&apos;;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Computer		#设置接口使用环境</span><br><span class="line">&#123;</span><br><span class="line">       public function Start(USB $x)	#接入接口</span><br><span class="line">       &#123;</span><br><span class="line">           $x-&gt;run();</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$c=new Computer;		#实例化</span><br><span class="line">$m=new Mouse;</span><br><span class="line">$k=new Keyboard;</span><br><span class="line"></span><br><span class="line">$c-&gt;start($m);		#依接入类型运行接口方法</span><br><span class="line">$c-&gt;start($k);	#?如何使用double()</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-foreach遍历对象"><a href="#5-foreach遍历对象" class="headerlink" title="5.foreach遍历对象"></a>5.foreach遍历对象</h4><blockquote>
+<p>foreach不但能够遍历数组,也可以遍历对象</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Book</span><br><span class="line">&#123;</span><br><span class="line">       public $name;	#成员属性只能定义,不赋初值</span><br><span class="line">       public $price;</span><br><span class="line">       private $author;</span><br><span class="line">       public function __construct($a,$b,$c)	#初始化属性</span><br><span class="line">       &#123;</span><br><span class="line">           $this-&gt;name = $a;</span><br><span class="line">           $this-&gt;price= $b;</span><br><span class="line">           $this-&gt;author=$c;</span><br><span class="line">       &#125;</span><br><span class="line">       $zhang=new Book(&apos;《新三国》&apos;,&apos;30元&apos;,&apos;小飞&apos;);</span><br><span class="line">       $cheng=new Book(&apos;《旧三国》&apos;,&apos;50元&apos;,&apos;阿亮&apos;);</span><br><span class="line">&#125;									#类外依旧受修饰符影响</span><br><span class="line">foreach($zhang as $key =&gt; $value)&#123;	</span><br><span class="line">       echo $key.&apos;------&apos;.$value.&apos;&lt;br&gt;&apos;;</span><br><span class="line">&#125;</span><br><span class="line">foreach($cheng as $key =&gt; $value)&#123;</span><br><span class="line">       echo $key.&apos;------&apos;.$value.&apos;&lt;br&gt;&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意: 遍历对象是将对象中的  ( 属性名=&gt;属性值 )  遍历显示</p>
+<h4 id="6-对象相关函数"><a href="#6-对象相关函数" class="headerlink" title="6.对象相关函数"></a>6.对象相关函数</h4><ul>
+<li><p>判断类是否存在</p>
+<p><code>class_exists( &#39;类名&#39; )</code>    返回bool值</p>
+</li>
+<li><p>判断某个类下的属性是否存在</p>
+<p><code>property_exists( &#39;类名&#39;,&#39;属性名&#39; )</code>     返回bool值</p>
+<blockquote>
+<p>可以检测私有属性,但不显示具体值</p>
+</blockquote>
+</li>
+<li><p>获取类中的所有公有属性</p>
+<p><code>get_class_vars( &#39;类名&#39; )</code>    返回数组, 包含属性名和属性值</p>
+</li>
+<li><p>获取对象中的所有公有属性</p>
+<p><code>get_object_vars( &#39;对象&#39; )</code>    返回数组, 包含属性名和属性值</p>
+</li>
+<li><p>获取类中的所有公有方法</p>
+<p><code>get_class_method( &#39;类名&#39; )</code>    返回索引数组, 包含所有方法名</p>
+</li>
+<li><p>获取某个对象的类名</p>
+<p><code>get_class( &#39;对象&#39; )</code>    返回字符串, 类名</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="NI9NE wechat" style="width: 200px; max-width: 100%;">
+  <div>关注我的测试接口</div>
+</div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="NI9NE 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-quora"></i> PHP</a>
+          
+            <a href="/tags/后端/" rel="tag"><i class="fa fa-quora"></i> 后端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/13/JavaScript 基础01-基本语法/" rel="next" title="JavaScript 基础01-基本语法">
+                <i class="fa fa-chevron-left"></i> JavaScript 基础01-基本语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/15/MySQL- 事务操作/" rel="prev" title="MySQL- 事务操作">
+                MySQL- 事务操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTQ3NS8yMTk4Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/favicon.png" alt="NI9NE">
+  
+  <p class="site-author-name" itemprop="name">NI9NE</p>
+  <div class="site-description motion-element" itemprop="description">TECH OTAKU SAVE THE WORLD</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://nodejs.cn/" title="http://nodejs.cn/" rel="noopener" target="_blank">Node.js</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bootcss.com/" title="https://www.bootcss.com/" rel="noopener" target="_blank">Bootstrap</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.expressjs.com.cn/" title="http://www.expressjs.com.cn/" rel="noopener" target="_blank">Express</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.npmjs.com/" title="https://www.npmjs.com/" rel="noopener" target="_blank">Npm</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://packagist.org/" title="https://packagist.org/" rel="noopener" target="_blank">Composer</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-面向对象"><span class="nav-number">1.</span> <span class="nav-text">2.面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-类简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.类简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-伪对象"><span class="nav-number">1.2.</span> <span class="nav-text">2.伪对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-连贯操作"><span class="nav-number">1.3.</span> <span class="nav-text">3.连贯操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-魔术方法"><span class="nav-number">1.4.</span> <span class="nav-text">4.魔术方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-定义："><span class="nav-number">1.4.1.</span> <span class="nav-text">1.定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-构造方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-析构方法"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.析构方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-实例化PDO类"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.实例化PDO类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-OOP面向对象"><span class="nav-number">2.</span> <span class="nav-text">3.OOP面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-封装性"><span class="nav-number">2.1.</span> <span class="nav-text">1.封装性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-魔术方法"><span class="nav-number">2.2.</span> <span class="nav-text">2.魔术方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-继承性"><span class="nav-number">2.3.</span> <span class="nav-text">3.继承性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-类静态"><span class="nav-number">2.4.</span> <span class="nav-text">4.类静态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-类常量"><span class="nav-number">2.5.</span> <span class="nav-text">5.类常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-最终-final"><span class="nav-number">2.6.</span> <span class="nav-text">6.最终 final</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用："><span class="nav-number">2.6.1.</span> <span class="nav-text">1.使用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-特性"><span class="nav-number">2.6.2.</span> <span class="nav-text">2.特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-克隆对象-clone"><span class="nav-number">2.7.</span> <span class="nav-text">7.克隆对象 clone</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-格式"><span class="nav-number">2.7.1.</span> <span class="nav-text">1.格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用"><span class="nav-number">2.7.2.</span> <span class="nav-text">2.使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-特性"><span class="nav-number">2.7.3.</span> <span class="nav-text">3.特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-克隆魔术方法"><span class="nav-number">2.7.4.</span> <span class="nav-text">4.克隆魔术方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-函数："><span class="nav-number">2.7.4.1.</span> <span class="nav-text">1.函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-作用："><span class="nav-number">2.7.4.2.</span> <span class="nav-text">2.作用：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-实例"><span class="nav-number">2.7.4.3.</span> <span class="nav-text">3.实例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-串行化-序列化"><span class="nav-number">2.8.</span> <span class="nav-text">8.串行化/序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-函数"><span class="nav-number">2.8.1.</span> <span class="nav-text">1.函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-目的"><span class="nav-number">2.8.2.</span> <span class="nav-text">2.目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用场景"><span class="nav-number">2.8.3.</span> <span class="nav-text">3.使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-实例"><span class="nav-number">2.8.4.</span> <span class="nav-text">4.实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-串行化魔术方法"><span class="nav-number">2.8.5.</span> <span class="nav-text">5.串行化魔术方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-函数：-1"><span class="nav-number">2.8.5.1.</span> <span class="nav-text">1.函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-应用"><span class="nav-number">2.8.5.2.</span> <span class="nav-text">2.应用:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-魔术方法—自动加载"><span class="nav-number">2.9.</span> <span class="nav-text">9.魔术方法—自动加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-格式-1"><span class="nav-number">2.9.1.</span> <span class="nav-text">1.格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-作用"><span class="nav-number">2.9.2.</span> <span class="nav-text">2.作用 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用场景-1"><span class="nav-number">2.9.3.</span> <span class="nav-text">3.使用场景 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-实例-1"><span class="nav-number">2.9.4.</span> <span class="nav-text">4.实例:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-抽象"><span class="nav-number">2.10.</span> <span class="nav-text">10.抽象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-抽象"><span class="nav-number">2.10.1.</span> <span class="nav-text">1.抽象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-接口"><span class="nav-number">2.10.2.</span> <span class="nav-text">2.接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-类型约束"><span class="nav-number">2.10.3.</span> <span class="nav-text">3.类型约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-接口多态性"><span class="nav-number">2.10.4.</span> <span class="nav-text">4.接口多态性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-foreach遍历对象"><span class="nav-number">2.10.5.</span> <span class="nav-text">5.foreach遍历对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-对象相关函数"><span class="nav-number">2.10.6.</span> <span class="nav-text">6.对象相关函数</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-chrome"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NI9NE</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+
+<script>
+  window.livereOptions = {
+    refer: '2018/05/13/PHP-OOP面向对象/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
